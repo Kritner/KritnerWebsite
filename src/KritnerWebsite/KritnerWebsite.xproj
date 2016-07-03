@@ -14,6 +14,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
+    <ApplicationInsightsResourceId>/subscriptions/744070ad-88c0-4449-8e28-52eaa1d9b66b/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/KritnerWebsite</ApplicationInsightsResourceId>
   </PropertyGroup>
   <ItemGroup>
     <DnxInvisibleContent Include="bower.json" />

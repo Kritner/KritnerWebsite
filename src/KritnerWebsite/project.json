@@ -35,10 +35,11 @@
       "version": "1.0.0-preview1-final",
       "type": "build"
     },
-    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc":  {
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview1-final",
       "type": "build"
-    }
+    },
+    "AutoMapper": "4.2.1"
   },
 
   "tools": {
