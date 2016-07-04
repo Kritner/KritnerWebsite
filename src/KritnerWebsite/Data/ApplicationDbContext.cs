@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using KritnerWebsite.Models;
+using KritnerWebsite.Models.NewbornInputOutputModels;
 
 namespace KritnerWebsite.Data
 {
@@ -14,6 +15,8 @@ namespace KritnerWebsite.Data
             : base(options)
         {
         }
+
+        DbSet<BabyEvent> BabyEvents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
