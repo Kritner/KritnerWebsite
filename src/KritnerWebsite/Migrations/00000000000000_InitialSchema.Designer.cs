@@ -8,7 +8,7 @@ using KritnerWebsite.Data;
 namespace KritnerWebsite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160704201811_InitialSchema")]
+    [Migration("20160709201353_InitialSchema")]
     partial class InitialSchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
