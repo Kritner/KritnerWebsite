@@ -12,6 +12,7 @@
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0",
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
     "Microsoft.AspNetCore.Mvc": "1.0.0",
+    "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0",
     "Microsoft.AspNetCore.Razor.Tools": {
       "version": "1.0.0-preview2-final",
       "type": "build"
@@ -32,7 +33,7 @@
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
     "Microsoft.VisualStudio.Web.CodeGeneration.Tools": {
-      "version": "1.0.0-preview2-final",
+      "version": "1.0.0-preview1-final",
       "type": "build"
     },
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
@@ -44,7 +45,7 @@
 
   "tools": {
     "Microsoft.AspNetCore.Razor.Tools": {
-      "version": "1.0.0-preview1-final",
+      "version": "1.0.0-preview2-final",
       "imports": "portable-net45+win8+dnxcore50"
     },
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
