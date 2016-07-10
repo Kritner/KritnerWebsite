@@ -132,6 +132,8 @@ namespace KritnerWebsite.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired();
 
+                    b.Property<int>("Gender");
+
                     b.Property<string>("LastName")
                         .IsRequired();
 

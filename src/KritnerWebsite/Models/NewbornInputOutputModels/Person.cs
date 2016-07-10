@@ -35,6 +35,12 @@ namespace KritnerWebsite.Models.NewbornInputOutputModels
         public DateTime DateOfBirth { get; set; }
 
         /// <summary>
+        /// The person's gender
+        /// </summary>
+        [Required]
+        public Gender Gender { get; set; } = Gender.Female;
+
+        /// <summary>
         /// The person's address
         /// </summary>
         [Required]
@@ -45,5 +51,14 @@ namespace KritnerWebsite.Models.NewbornInputOutputModels
         /// Notes on the person
         /// </summary>
         public string Notes { get; set; }
+    }
+
+    /// <summary>
+    /// A person's gender
+    /// </summary>
+    public enum Gender
+    {
+        Female = 0,
+        Male = 1
     }
 }
