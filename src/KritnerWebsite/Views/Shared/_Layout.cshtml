@@ -1,80 +1,80 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - KritnerWebsite</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - KritnerWebsite</title>
 
-    <environment names="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/lib/bootswatch/slate/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
-    <environment names="Staging,Production">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/lib/bootswatch/slate/bootstrap.min.css"
-              asp-append-version="true" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
-    @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+	<environment names="Development">
+		<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" href="~/lib/bootswatch/slate/bootstrap.css" />
+		<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	</environment>
+	<environment names="Staging,Production">
+		<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+			  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+			  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+		<link rel="stylesheet" href="~/lib/bootswatch/slate/bootstrap.min.css"
+			  asp-append-version="true" />
+		<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+	</environment>
+	@Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-controller="Home" asp-action="Index" class="navbar-brand">KritnerWebsite</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Testing Stuff <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a asp-controller="Testing" asp-action="Index">Main</a></li>
-                            <li class="divider"></li>
-                            <li><a asp-controller="Testing" asp-action="BabyTracking">Baby Tracking</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                @await Html.PartialAsync("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8">
-                @RenderBody()
-            </div>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a asp-controller="Home" asp-action="Index" class="navbar-brand">KritnerWebsite</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a asp-controller="Home" asp-action="Index">Home</a></li>
+					<li><a asp-controller="Home" asp-action="About">About</a></li>
+					<li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Testing Stuff <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a asp-controller="Testing" asp-action="Index">Main</a></li>
+							<li class="divider"></li>
+							<li><a asp-controller="Testing" asp-action="BabyTracking">Baby Tracking</a></li>
+						</ul>
+					</li>
+				</ul>
+				@await Html.PartialAsync("_LoginPartial")
+			</div>
+		</div>
+	</div>
+	<div class="container body-content">
+		<div class="row">
+			<div class="col-xs-12 col-sm-8">
+				@RenderBody()
+			</div>
 
-            <div class="col-xs-offset-4 col-xs-4 col-xs-offset-4 col-sm-3 col-sm-offset-1">
-                <div class="row">
-                    <div class="col-sm-offset-10 center-block">
-                        <a href="https://twitter.com/intent/tweet?screen_name=RLHammett" class="twitter-mention-button">Tweet to @@RLHammett</a>
-                        <script type="text/javascript">
-                            !function (d, s, id) {
-                                var js,
-                                fjs = d.getElementsByTagName(s)[0];
-                                if (!d.getElementById(id)) {
-                                    js = d.createElement(s);
-                                    js.id = id;
-                                    js.src = "//platform.twitter.com/widgets.js";
-                                    fjs.parentNode.insertBefore(js, fjs);
-                                }
-                            }
-                            (document, "script", "twitter-wjs");
-                        </script>
-                        <br />
-                        <script type="text/javascript">
+			<div class="col-xs-offset-4 col-xs-4 col-xs-offset-4 col-sm-3 col-sm-offset-1">
+				<div class="row">
+					<div class="col-sm-offset-10 center-block">
+						<a href="https://twitter.com/intent/tweet?screen_name=RLHammett" class="twitter-mention-button">Tweet to @@RLHammett</a>
+						<script type="text/javascript">
+							!function (d, s, id) {
+								var js,
+								fjs = d.getElementsByTagName(s)[0];
+								if (!d.getElementById(id)) {
+									js = d.createElement(s);
+									js.id = id;
+									js.src = "//platform.twitter.com/widgets.js";
+									fjs.parentNode.insertBefore(js, fjs);
+								}
+							}
+							(document, "script", "twitter-wjs");
+						</script>
+						<br />
+						<script type="text/javascript">
 							<!--
 							google_ad_client = "ca-pub-6309408035070203";
 							/* Big Ad */
@@ -82,40 +82,40 @@
 							google_ad_width = 250;
 							google_ad_height = 250;
 							//-->
-                        </script>
-                        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-                        <br />
-                        <a href="http://stackexchange.com/users/2676612/kritner"><img src="http://stackexchange.com/users/flair/2676612.png" width="208" height="58" alt="profile for Kritner on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Kritner on Stack Exchange, a network of free, community-driven Q&amp;A sites" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+						</script>
+						<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+						<br />
+						<a href="http://stackexchange.com/users/2676612/kritner"><img src="http://stackexchange.com/users/flair/2676612.png" width="208" height="58" alt="profile for Kritner on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Kritner on Stack Exchange, a network of free, community-driven Q&amp;A sites" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        <hr />
+		<hr />
 
-    </div>
+	</div>
 
-    <footer>
-        <p>&copy; 2016 - KritnerWebsite</p>
-    </footer>
+	<footer>
+		<p>&copy; 2016 - KritnerWebsite</p>
+	</footer>
 
-    <environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js" asp-append-version="true"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment names="Staging,Production">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
+	<environment names="Development">
+		<script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>
+		<script src="~/lib/bootstrap/dist/js/bootstrap.js" asp-append-version="true"></script>
+		<script src="~/js/site.js" asp-append-version="true"></script>
+	</environment>
+	<environment names="Staging,Production">
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+				asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+				asp-fallback-test="window.jQuery">
+		</script>
+		<script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+				asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+				asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+		</script>
+		<script src="~/js/site.min.js" asp-append-version="true"></script>
+	</environment>
 
-    @RenderSection("scripts", required: false)
+	@RenderSection("scripts", required: false)
 </body>
 </html>
