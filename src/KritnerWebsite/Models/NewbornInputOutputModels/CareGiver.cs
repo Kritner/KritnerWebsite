@@ -17,5 +17,9 @@ namespace KritnerWebsite.Models.NewbornInputOutputModels
         [Required]
         public ApplicationUser User { get; set; }
 
+        /// <summary>
+        /// The baby events the CareGiver has administered
+        /// </summary>
+        public virtual ICollection<BabyEvent> BabyEvents { get; set; }
     }
 }
