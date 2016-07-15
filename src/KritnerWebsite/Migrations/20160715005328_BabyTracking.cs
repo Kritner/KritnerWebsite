@@ -99,7 +99,7 @@ namespace KritnerWebsite.Migrations
                         column: x => x.CareGiverId,
                         principalTable: "People",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
