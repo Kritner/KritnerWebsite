@@ -15,7 +15,7 @@ namespace KritnerWebsite.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-            Database.MigrateAsync();
+            Database.Migrate();
         }
 
         #region BabyEvents
