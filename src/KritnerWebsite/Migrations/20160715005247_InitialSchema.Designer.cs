@@ -8,9 +8,10 @@ using KritnerWebsite.Data;
 namespace KritnerWebsite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160715005247_InitialSchema")]
+    partial class InitialSchema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
@@ -63,91 +64,6 @@ namespace KritnerWebsite.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("KritnerWebsite.Models.NewbornModels.Address", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("AddressLine1")
-                        .IsRequired();
-
-                    b.Property<string>("AddressLine2");
-
-                    b.Property<string>("City")
-                        .IsRequired();
-
-                    b.Property<int>("PersonId");
-
-                    b.Property<string>("State")
-                        .IsRequired();
-
-                    b.Property<string>("Zip")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PersonId")
-                        .IsUnique();
-
-                    b.ToTable("Address");
-                });
-
-            modelBuilder.Entity("KritnerWebsite.Models.NewbornModels.BabyEvent", b =>
-                {
-                    b.Property<int>("EventId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("BabyId");
-
-                    b.Property<int>("CareGiverId");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
-
-                    b.Property<DateTime>("EventTime");
-
-                    b.Property<string>("Notes");
-
-                    b.HasKey("EventId");
-
-                    b.HasIndex("BabyId");
-
-                    b.HasIndex("CareGiverId");
-
-                    b.ToTable("BabyEvents");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("BabyEvent");
-                });
-
-            modelBuilder.Entity("KritnerWebsite.Models.NewbornModels.Person", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("DateCreated");
-
-                    b.Property<DateTime>("DateOfBirth");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
-
-                    b.Property<string>("FirstName")
-                        .IsRequired();
-
-                    b.Property<int>("Gender");
-
-                    b.Property<string>("LastName")
-                        .IsRequired();
-
-                    b.Property<string>("Notes");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("People");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Person");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -257,96 +173,6 @@ namespace KritnerWebsite.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("KritnerWebsite.Models.NewbornModels.BabyEvents.BottleBabyEvent", b =>
-                {
-                    b.HasBaseType("KritnerWebsite.Models.NewbornModels.BabyEvent");
-
-                    b.Property<int>("FoodType");
-
-                    b.Property<int>("MillilitersReceived");
-
-                    b.ToTable("BottleBabyEvent");
-
-                    b.HasDiscriminator().HasValue("BottleBabyEvent");
-                });
-
-            modelBuilder.Entity("KritnerWebsite.Models.NewbornModels.BabyEvents.BreastFeedingBabyEvent", b =>
-                {
-                    b.HasBaseType("KritnerWebsite.Models.NewbornModels.BabyEvent");
-
-                    b.Property<int>("FeedingDurationInMinutes");
-
-                    b.Property<int>("StartingBreast");
-
-                    b.ToTable("BreastFeedingBabyEvent");
-
-                    b.HasDiscriminator().HasValue("BreastFeedingBabyEvent");
-                });
-
-            modelBuilder.Entity("KritnerWebsite.Models.NewbornModels.BabyEvents.DiaperChangeBabyEvent", b =>
-                {
-                    b.HasBaseType("KritnerWebsite.Models.NewbornModels.BabyEvent");
-
-                    b.Property<bool>("DirtyDiaper");
-
-                    b.Property<bool>("WetDiaper");
-
-                    b.ToTable("DiaperChangeBabyEvent");
-
-                    b.HasDiscriminator().HasValue("DiaperChangeBabyEvent");
-                });
-
-            modelBuilder.Entity("KritnerWebsite.Models.NewbornModels.Baby", b =>
-                {
-                    b.HasBaseType("KritnerWebsite.Models.NewbornModels.Person");
-
-
-                    b.ToTable("Baby");
-
-                    b.HasDiscriminator().HasValue("Baby");
-                });
-
-            modelBuilder.Entity("KritnerWebsite.Models.NewbornModels.CareGiver", b =>
-                {
-                    b.HasBaseType("KritnerWebsite.Models.NewbornModels.Person");
-
-                    b.Property<int?>("BabyId");
-
-                    b.Property<int?>("BabyId1");
-
-                    b.Property<string>("UserName")
-                        .IsRequired();
-
-                    b.HasIndex("BabyId");
-
-                    b.HasIndex("BabyId1");
-
-                    b.ToTable("CareGiver");
-
-                    b.HasDiscriminator().HasValue("CareGiver");
-                });
-
-            modelBuilder.Entity("KritnerWebsite.Models.NewbornModels.Address", b =>
-                {
-                    b.HasOne("KritnerWebsite.Models.NewbornModels.Person")
-                        .WithOne("Address")
-                        .HasForeignKey("KritnerWebsite.Models.NewbornModels.Address", "PersonId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("KritnerWebsite.Models.NewbornModels.BabyEvent", b =>
-                {
-                    b.HasOne("KritnerWebsite.Models.NewbornModels.Baby")
-                        .WithMany("BabyEvents")
-                        .HasForeignKey("BabyId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("KritnerWebsite.Models.NewbornModels.CareGiver")
-                        .WithMany("BabyEvents")
-                        .HasForeignKey("CareGiverId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
@@ -382,17 +208,6 @@ namespace KritnerWebsite.Migrations
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("KritnerWebsite.Models.NewbornModels.CareGiver", b =>
-                {
-                    b.HasOne("KritnerWebsite.Models.NewbornModels.Baby")
-                        .WithMany("CareGivers")
-                        .HasForeignKey("BabyId");
-
-                    b.HasOne("KritnerWebsite.Models.NewbornModels.Baby")
-                        .WithMany("Guardians")
-                        .HasForeignKey("BabyId1");
                 });
         }
     }

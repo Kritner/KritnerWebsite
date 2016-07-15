@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using KritnerWebsite.Models;
-using KritnerWebsite.Models.NewbornInputOutputModels;
-using KritnerWebsite.Models.NewbornInputOutputModels.BabyEvents;
+using KritnerWebsite.Models.NewbornModels;
+using KritnerWebsite.Models.NewbornModels.BabyEvents;
 
 namespace KritnerWebsite.Data
 {
@@ -15,6 +15,7 @@ namespace KritnerWebsite.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            Database.MigrateAsync();
         }
 
         #region BabyEvents

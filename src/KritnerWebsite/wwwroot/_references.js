@@ -7,5 +7,7 @@
 /// <reference path="lib/jquery/dist/jquery.js" />
 /// <reference path="lib/jquery-validation/dist/jquery.validate.js" />
 /// <reference path="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" />
+/// <reference path="lib/knockout.js/knockout.js" />
 /// <reference path="lib/knockout/dist/knockout.js" />
+/// <reference path="lib/requirejs/require.js" />
 /// <reference path="lib/underscore/underscore.js" />

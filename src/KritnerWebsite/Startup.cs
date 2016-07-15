@@ -12,6 +12,14 @@ using Microsoft.Extensions.Logging;
 using KritnerWebsite.Data;
 using KritnerWebsite.Models;
 using KritnerWebsite.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Net;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using KritnerWebsite.Interfaces;
+using KritnerWebsite.Repositories;
+using AutoMapper;
+using KritnerWebsite.Models.NewbornModels;
+using KritnerWebsite.Models.NewbornViewModels;
 
 namespace KritnerWebsite
 {
@@ -48,34 +56,61 @@ namespace KritnerWebsite
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>(config =>
+            {
+                config.User.RequireUniqueEmail = true;
+                config.Password.RequiredLength = 8;
+                config.Cookies.ApplicationCookie.LoginPath = "/Account/Login";
+                config.Cookies.ApplicationCookie.Events = new CookieAuthenticationEvents()
+                {
+                    OnRedirectToLogin = ctx =>
+                    {
+                        if (ctx.Request.Path.StartsWithSegments("/api") &&
+                            ctx.Response.StatusCode == (int)HttpStatusCode.OK)
+                            ctx.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                        else
+                            ctx.Response.Redirect(ctx.RedirectUri);
+
+                        return Task.FromResult(0);
+                    }
+                };
+            })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddLogging();
             services.AddMvc();
 
             // Add application services.
+            services.AddEntityFramework()
+                .AddDbContext<ApplicationDbContext>();
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            services.AddScoped<ICareGiverRepository, CareGiverRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(
+            IApplicationBuilder app, 
+            IHostingEnvironment env, 
+            ILoggerFactory loggerFactory,
+            ApplicationDbContext context
+        )
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
             app.UseApplicationInsightsRequestTelemetry();
 
             if (env.IsDevelopment())
             {
+                loggerFactory.AddDebug(LogLevel.Information);
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
                 app.UseBrowserLink();
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                loggerFactory.AddDebug(LogLevel.Error);
+                app.UseExceptionHandler("/Shared/Error");
             }
 
             app.UseApplicationInsightsExceptionTelemetry();
@@ -83,6 +118,12 @@ namespace KritnerWebsite
             app.UseStaticFiles();
 
             app.UseIdentity();
+
+            Mapper.Initialize(config =>
+            {
+                config.CreateMap<Address, AddressViewModel>().ReverseMap();
+                config.CreateMap<CareGiver, CareGiverViewModel>().ReverseMap();
+            });
 
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
 
