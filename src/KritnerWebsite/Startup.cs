@@ -20,6 +20,9 @@ using KritnerWebsite.Repositories;
 using AutoMapper;
 using KritnerWebsite.Models.NewbornModels;
 using KritnerWebsite.Models.NewbornViewModels;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace KritnerWebsite
 {
@@ -120,6 +123,15 @@ namespace KritnerWebsite
             app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseStaticFiles();
+
+            // Allow static files within the .well-known directory to allow for automatic SSL renewal
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                ServeUnknownFileTypes = true,
+                FileProvider = new PhysicalFileProvider(
+                        Path.Combine(Directory.GetCurrentDirectory(), @".well-known")),
+                RequestPath = new PathString("/.well-known")
+            });
 
             app.UseIdentity();
 
