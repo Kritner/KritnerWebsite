@@ -9,17 +9,13 @@
     <p>
         Aaron Michael Hammett was born June 24, 2016.  There's already baby tracking stuff out there, but I need practice!  So I'll be attempting to put something together to track Aaron's feedings and the like in this section.
     </p>
-    <p>
-        TODO Knockout impl?
-    </p>
+    <div id="applicationHost"></div>
 </div>
 
 @section scripts {
-    
-    <environment names="Development">
-        <script type="text/javascript" src="~/js/ko/babyTracking/babyTracking.js"></script>
-    </environment>
-    <environment names="Staging,Production">
-        <script type="text/javascript" src="~/js/ko/babyTracking/babyTracking.min.js"></script>
-    </environment>
+    <script type="text/javascript" src="~/lib/knockout.js/knockout.js"></script>
+
+    <script type="text/javascript" 
+            src="~/lib/requirejs/require.js" 
+            data-main="/durandal/babyTesting/_main"></script>
 }

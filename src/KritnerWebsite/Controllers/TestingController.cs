@@ -24,5 +24,10 @@ namespace KritnerWebsite.Controllers
         {
             return View();
         }
+
+        public IActionResult PluralSightDurandalGetStarted()
+        {
+            return View();
+        }
     }
 }

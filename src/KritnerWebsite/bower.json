@@ -10,7 +10,6 @@
     "jquery-validation-unobtrusive": "~3.2.6",
     "angular": "1.5.7",
     "angular-route": "~1.5.7",
-    "durandal": "~2.1.0",
-    "requirejs": "~2.2.0"
+    "durandal": "~2.1.0"
   }
 }
