@@ -6,9 +6,6 @@
     <environment names="Development">
         <link rel="stylesheet" href="~/css/blog.css" />
     </environment>
-    <environment names="Staging,Production">
-        <link rel="stylesheet" href="~/css/blog.min.css" />
-    </environment>
 }
 
 <h2>@ViewData["Title"].</h2>
@@ -33,11 +30,6 @@
 
 @section scripts {
     <environment names="Development">
-        <script src="~/lib/knockoutjs/dist/knockout.debug.js"></script>
         <script src="~/js/blog.js" asp-append-version="true"></script>
-    </environment>
-    <environment names="Staging,Production">
-        <script src="~/lib/knockoutjs/dist/knockout.js"></script>
-        <script src="~/js/blog.min.js" asp-append-version="true"></script>
     </environment>
 }
