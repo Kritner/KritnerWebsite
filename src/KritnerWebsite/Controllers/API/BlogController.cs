@@ -13,7 +13,6 @@ using System.Net;
 
 namespace KritnerWebsite.Controllers
 {
-    [Authorize]
     [Route("api/blog")]
     public class BlogController : Controller
     {
