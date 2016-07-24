@@ -23,6 +23,8 @@ using KritnerWebsite.Models.NewbornViewModels;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using KritnerWebsite.Models.HomeModels;
+using KritnerWebsite.Models.HomeViewModels;
 
 namespace KritnerWebsite
 {
@@ -93,6 +95,7 @@ namespace KritnerWebsite
                 .AddDbContext<ApplicationDbContext>();
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.AddTransient<IBlogRetrieval, BlogRetrievalService>();
 
             services.AddScoped<ICareGiverRepository, CareGiverRepository>();
         }
@@ -139,6 +142,7 @@ namespace KritnerWebsite
             {
                 config.CreateMap<Address, AddressViewModel>().ReverseMap();
                 config.CreateMap<CareGiver, CareGiverViewModel>().ReverseMap();
+                config.CreateMap<BlogEntry, BlogEntryViewModel>().ReverseMap();
             });
 
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715

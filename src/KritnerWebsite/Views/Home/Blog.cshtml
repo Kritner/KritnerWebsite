@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Blog";
+}
+
+@section styles {
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/blog.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/blog.min.css" />
+    </environment>
+}
+
+<h2>@ViewData["Title"].</h2>
+
+<div data-bind="visible: isLoading()" class="loading blogEntryDiv">
+    <i class="fa fa-circle-o-notch fa-spin fa-3x"></i> Loading...
+</div>
+
+<div data-bind="visible: !isLoading(), foreach: blogs" class="blogEntryDiv">
+    <br />
+    <span data-bind="text: entryPostedDate"></span>
+    <br />
+    <h3>
+        <a data-bind="attr: { href: blogEntryLink }, text: title" class="blogEntryTitle"></a>
+    </h3>
+    <br /><br />
+    <span data-bind="html: body"></span>
+    <br />
+    <hr />
+    <br />
+</div>
+
+@section scripts {
+    <environment names="Development">
+        <script src="~/lib/knockoutjs/dist/knockout.debug.js"></script>
+        <script src="~/js/blog.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/lib/knockoutjs/dist/knockout.js"></script>
+        <script src="~/js/blog.min.js" asp-append-version="true"></script>
+    </environment>
+}

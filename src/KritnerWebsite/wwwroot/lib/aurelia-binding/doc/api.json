@@ -1,0 +1,2788 @@
+{
+  "id": 2,
+  "name": "\"aurelia-binding\"",
+  "kind": 2,
+  "kindString": "Module",
+  "flags": {},
+  "comment": {
+    "shortText": "A modern databinding library for JavaScript and HTML."
+  },
+  "children": [
+    {
+      "id": 27,
+      "name": "bindingMode",
+      "kind": 4,
+      "kindString": "Enumeration",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Describes the direction of the data flow in a binding."
+      },
+      "children": [
+        {
+          "id": 28,
+          "name": "oneTime",
+          "kind": 16,
+          "kindString": "Enumeration member",
+          "flags": {
+            "isExported": true
+          },
+          "comment": {
+            "shortText": "Updates the binding target once. This is essentially a simpler form of one-way binding\nthat provides better performance in cases where the source value does not change."
+          },
+          "defaultValue": "0"
+        },
+        {
+          "id": 29,
+          "name": "oneWay",
+          "kind": 16,
+          "kindString": "Enumeration member",
+          "flags": {
+            "isExported": true
+          },
+          "comment": {
+            "shortText": "Updates the binding target (target) property when the binding source (source) changes.\nThis type of binding is appropriate if the element being bound is implicitly read-only.\nIf there is no need to monitor the changes of the target property, using the OneWay\nbinding mode avoids the overhead of the two-way binding mode."
+          },
+          "defaultValue": "1"
+        },
+        {
+          "id": 30,
+          "name": "twoWay",
+          "kind": 16,
+          "kindString": "Enumeration member",
+          "flags": {
+            "isExported": true
+          },
+          "comment": {
+            "shortText": "Causes changes to either the source property or the target property to automatically update\nthe other. This type of binding is appropriate for editable forms or other fully-interactive\nUI scenarios."
+          },
+          "defaultValue": "2"
+        }
+      ],
+      "groups": [
+        {
+          "title": "Enumeration members",
+          "kind": 16,
+          "children": [
+            28,
+            29,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": 155,
+      "name": "BindingEngine",
+      "kind": 128,
+      "kindString": "Class",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Binding system API."
+      },
+      "children": [
+        {
+          "id": 166,
+          "name": "collectionObserver",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 167,
+              "name": "collectionObserver",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Gets an observer for collection mutation."
+              },
+              "parameters": [
+                {
+                  "id": 168,
+                  "name": "collection",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "union",
+                    "types": [
+                      {
+                        "type": "reference",
+                        "name": "Array",
+                        "typeArguments": [
+                          {
+                            "type": "instrinct",
+                            "name": "any"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "reference",
+                        "name": "Map",
+                        "typeArguments": [
+                          {
+                            "type": "instrinct",
+                            "name": "any"
+                          },
+                          {
+                            "type": "instrinct",
+                            "name": "any"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "CollectionObserver",
+                "id": 20,
+                "moduleName": "\"aurelia-binding\""
+              }
+            }
+          ]
+        },
+        {
+          "id": 156,
+          "name": "createBindingExpression",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 157,
+              "name": "createBindingExpression",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Creates a binding expression for the specified target property and source expression."
+              },
+              "parameters": [
+                {
+                  "id": 158,
+                  "name": "targetProperty",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {
+                    "text": "The target attribute, eg \"value\" / \"checked\" / \"textcontent\" / \"data-foo\"."
+                  },
+                  "type": {
+                    "type": "instrinct",
+                    "name": "string"
+                  }
+                },
+                {
+                  "id": 159,
+                  "name": "sourceExpression",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {
+                    "text": "A javascript expression accessing the source property."
+                  },
+                  "type": {
+                    "type": "instrinct",
+                    "name": "string"
+                  }
+                },
+                {
+                  "id": 160,
+                  "name": "mode",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "text": "The directionality of the binding."
+                  },
+                  "type": {
+                    "type": "reference",
+                    "name": "bindingMode",
+                    "id": 27,
+                    "moduleName": "\"aurelia-binding\""
+                  }
+                },
+                {
+                  "id": 161,
+                  "name": "lookupFunctions",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "text": "Lookup functions for value converter and binding behavior resources.\n"
+                  },
+                  "type": {
+                    "type": "reference",
+                    "name": "LookupFunctions",
+                    "id": 31,
+                    "moduleName": "\"aurelia-binding\""
+                  }
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "BindingExpression",
+                "id": 113,
+                "moduleName": "\"aurelia-binding\""
+              }
+            }
+          ]
+        },
+        {
+          "id": 169,
+          "name": "expressionObserver",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 170,
+              "name": "expressionObserver",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Gets an observer for a javascript expression that accesses a property on the binding context."
+              },
+              "parameters": [
+                {
+                  "id": 171,
+                  "name": "bindingContext",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {
+                    "text": "The binding context (view-model)"
+                  },
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 172,
+                  "name": "expression",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {
+                    "text": "A javascript expression accessing the source property.\n"
+                  },
+                  "type": {
+                    "type": "instrinct",
+                    "name": "string"
+                  }
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "PropertyObserver",
+                "id": 12,
+                "moduleName": "\"aurelia-binding\""
+              }
+            }
+          ]
+        },
+        {
+          "id": 173,
+          "name": "parseExpression",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 174,
+              "name": "parseExpression",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Parses a string containing a javascript expression and returns a data-binding specialized AST. Memoized."
+              },
+              "parameters": [
+                {
+                  "id": 175,
+                  "name": "expression",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "string"
+                  }
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "Expression",
+                "id": 117,
+                "moduleName": "\"aurelia-binding\""
+              }
+            }
+          ]
+        },
+        {
+          "id": 162,
+          "name": "propertyObserver",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 163,
+              "name": "propertyObserver",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Gets an observer for property changes."
+              },
+              "parameters": [
+                {
+                  "id": 164,
+                  "name": "obj",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reference",
+                    "name": "Object"
+                  }
+                },
+                {
+                  "id": 165,
+                  "name": "propertyName",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "string"
+                  }
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "PropertyObserver",
+                "id": 12,
+                "moduleName": "\"aurelia-binding\""
+              }
+            }
+          ]
+        },
+        {
+          "id": 176,
+          "name": "registerAdapter",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 177,
+              "name": "registerAdapter",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Registers an adapter that provides an efficient property observeration strategy for\nproperties that would otherwise require dirty-checking."
+              },
+              "parameters": [
+                {
+                  "id": 178,
+                  "name": "adapter",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reference",
+                    "name": "ObjectObservationAdapter",
+                    "id": 135,
+                    "moduleName": "\"aurelia-binding\""
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            166,
+            156,
+            169,
+            173,
+            162,
+            176
+          ]
+        }
+      ]
+    },
+    {
+      "id": 141,
+      "name": "ObserverLocator",
+      "kind": 128,
+      "kindString": "Class",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Internal object observation API. Locates observers for properties, arrays and maps using a variety of strategies."
+      },
+      "children": [
+        {
+          "id": 146,
+          "name": "addAdapter",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 147,
+              "name": "addAdapter",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Adds a property observation adapter."
+              },
+              "parameters": [
+                {
+                  "id": 148,
+                  "name": "adapter",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reference",
+                    "name": "ObjectObservationAdapter",
+                    "id": 135,
+                    "moduleName": "\"aurelia-binding\""
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            }
+          ]
+        },
+        {
+          "id": 149,
+          "name": "getArrayObserver",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 150,
+              "name": "getArrayObserver",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Gets an observer for array mutation."
+              },
+              "parameters": [
+                {
+                  "id": 151,
+                  "name": "array",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reference",
+                    "name": "Array",
+                    "typeArguments": [
+                      {
+                        "type": "instrinct",
+                        "name": "any"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "InternalCollectionObserver",
+                "id": 73,
+                "moduleName": "\"aurelia-binding\""
+              }
+            }
+          ]
+        },
+        {
+          "id": 152,
+          "name": "getMapObserver",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 153,
+              "name": "getMapObserver",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Gets an observer for map mutation."
+              },
+              "parameters": [
+                {
+                  "id": 154,
+                  "name": "map",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reference",
+                    "name": "Map",
+                    "typeArguments": [
+                      {
+                        "type": "instrinct",
+                        "name": "any"
+                      },
+                      {
+                        "type": "instrinct",
+                        "name": "any"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "InternalCollectionObserver",
+                "id": 73,
+                "moduleName": "\"aurelia-binding\""
+              }
+            }
+          ]
+        },
+        {
+          "id": 142,
+          "name": "getObserver",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 143,
+              "name": "getObserver",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Gets an observer for property changes."
+              },
+              "parameters": [
+                {
+                  "id": 144,
+                  "name": "obj",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 145,
+                  "name": "propertyName",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "string"
+                  }
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "InternalPropertyObserver",
+                "id": 47,
+                "moduleName": "\"aurelia-binding\""
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            146,
+            149,
+            152,
+            142
+          ]
+        }
+      ]
+    },
+    {
+      "id": 131,
+      "name": "Parser",
+      "kind": 128,
+      "kindString": "Class",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Parses strings containing javascript expressions and returns a data-binding specialized AST."
+      },
+      "children": [
+        {
+          "id": 132,
+          "name": "parse",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 133,
+              "name": "parse",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Parses a string containing a javascript expression and returns a data-binding specialized AST. Memoized."
+              },
+              "parameters": [
+                {
+                  "id": 134,
+                  "name": "input",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "string"
+                  }
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "Expression",
+                "id": 117,
+                "moduleName": "\"aurelia-binding\""
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            132
+          ]
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "name": "Binding",
+      "kind": 256,
+      "kindString": "Interface",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Provides high-level access to the definition of a binding, which connects the properties of\nbinding target objects (typically, HTML elements), and any data source"
+      },
+      "children": [
+        {
+          "id": 104,
+          "name": "callSource",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true,
+            "isOptional": true
+          },
+          "comment": {
+            "shortText": "Calls the source method with the specified args object."
+          },
+          "type": {
+            "type": "reflection",
+            "declaration": {
+              "id": 105,
+              "name": "__type",
+              "kind": 65536,
+              "kindString": "Type literal",
+              "flags": {},
+              "signatures": [
+                {
+                  "id": 106,
+                  "name": "__call",
+                  "kind": 4096,
+                  "kindString": "Call signature",
+                  "flags": {},
+                  "parameters": [
+                    {
+                      "id": 107,
+                      "name": "event",
+                      "kind": 32768,
+                      "kindString": "Parameter",
+                      "flags": {},
+                      "type": {
+                        "type": "instrinct",
+                        "name": "any"
+                      }
+                    }
+                  ],
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": 93,
+          "name": "mode",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true,
+            "isOptional": true
+          },
+          "comment": {
+            "shortText": "The directionality of the binding."
+          },
+          "type": {
+            "type": "reference",
+            "name": "bindingMode",
+            "id": 27
+          }
+        },
+        {
+          "id": 94,
+          "name": "sourceExpression",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true,
+            "isOptional": true
+          },
+          "comment": {
+            "shortText": "The expression to access/assign/connect the binding source property."
+          },
+          "type": {
+            "type": "reference",
+            "name": "Expression",
+            "id": 117
+          }
+        },
+        {
+          "id": 95,
+          "name": "targetProperty",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true,
+            "isOptional": true
+          },
+          "comment": {
+            "shortText": "The target property observer."
+          },
+          "type": {
+            "type": "reference",
+            "name": "InternalPropertyObserver",
+            "id": 47
+          }
+        },
+        {
+          "id": 100,
+          "name": "updateSource",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true,
+            "isOptional": true
+          },
+          "comment": {
+            "shortText": "Assigns a value to the source."
+          },
+          "type": {
+            "type": "reflection",
+            "declaration": {
+              "id": 101,
+              "name": "__type",
+              "kind": 65536,
+              "kindString": "Type literal",
+              "flags": {},
+              "signatures": [
+                {
+                  "id": 102,
+                  "name": "__call",
+                  "kind": 4096,
+                  "kindString": "Call signature",
+                  "flags": {},
+                  "parameters": [
+                    {
+                      "id": 103,
+                      "name": "value",
+                      "kind": 32768,
+                      "kindString": "Parameter",
+                      "flags": {},
+                      "type": {
+                        "type": "instrinct",
+                        "name": "any"
+                      }
+                    }
+                  ],
+                  "type": {
+                    "type": "instrinct",
+                    "name": "void"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": 96,
+          "name": "updateTarget",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true,
+            "isOptional": true
+          },
+          "comment": {
+            "shortText": "Assigns a value to the target."
+          },
+          "type": {
+            "type": "reflection",
+            "declaration": {
+              "id": 97,
+              "name": "__type",
+              "kind": 65536,
+              "kindString": "Type literal",
+              "flags": {},
+              "signatures": [
+                {
+                  "id": 98,
+                  "name": "__call",
+                  "kind": 4096,
+                  "kindString": "Call signature",
+                  "flags": {},
+                  "parameters": [
+                    {
+                      "id": 99,
+                      "name": "value",
+                      "kind": 32768,
+                      "kindString": "Parameter",
+                      "flags": {},
+                      "type": {
+                        "type": "instrinct",
+                        "name": "any"
+                      }
+                    }
+                  ],
+                  "type": {
+                    "type": "instrinct",
+                    "name": "void"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": 108,
+          "name": "bind",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 109,
+              "name": "bind",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Connects the binding to a scope."
+              },
+              "parameters": [
+                {
+                  "id": 110,
+                  "name": "source",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reference",
+                    "name": "Scope",
+                    "id": 6
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            }
+          ]
+        },
+        {
+          "id": 111,
+          "name": "unbind",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 112,
+              "name": "unbind",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Disconnects the binding from a scope."
+              },
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Properties",
+          "kind": 1024,
+          "children": [
+            104,
+            93,
+            94,
+            95,
+            100,
+            96
+          ]
+        },
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            108,
+            111
+          ]
+        }
+      ]
+    },
+    {
+      "id": 113,
+      "name": "BindingExpression",
+      "kind": 256,
+      "kindString": "Interface",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "A factory for binding instances."
+      },
+      "children": [
+        {
+          "id": 114,
+          "name": "createBinding",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 115,
+              "name": "createBinding",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "parameters": [
+                {
+                  "id": 116,
+                  "name": "target",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "Binding",
+                "id": 92
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            114
+          ]
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "name": "Callable",
+      "kind": 256,
+      "kindString": "Interface",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "A callable object."
+      },
+      "children": [
+        {
+          "id": 39,
+          "name": "call",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 40,
+              "name": "call",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "parameters": [
+                {
+                  "id": 41,
+                  "name": "context",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 42,
+                  "name": "newValue",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 43,
+                  "name": "oldValue",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            },
+            {
+              "id": 44,
+              "name": "call",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "parameters": [
+                {
+                  "id": 45,
+                  "name": "context",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 46,
+                  "name": "changeRecords",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            39
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "CollectionObserver",
+      "kind": 256,
+      "kindString": "Interface",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Observes collection mutation."
+      },
+      "children": [
+        {
+          "id": 21,
+          "name": "subscribe",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 22,
+              "name": "subscribe",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Subscribe to collection mutation events."
+              },
+              "parameters": [
+                {
+                  "id": 23,
+                  "name": "callback",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reflection",
+                    "declaration": {
+                      "id": 24,
+                      "name": "__type",
+                      "kind": 65536,
+                      "kindString": "Type literal",
+                      "flags": {},
+                      "signatures": [
+                        {
+                          "id": 25,
+                          "name": "__call",
+                          "kind": 4096,
+                          "kindString": "Call signature",
+                          "flags": {},
+                          "parameters": [
+                            {
+                              "id": 26,
+                              "name": "changeRecords",
+                              "kind": 32768,
+                              "kindString": "Parameter",
+                              "flags": {},
+                              "type": {
+                                "type": "instrinct",
+                                "name": "any"
+                              }
+                            }
+                          ],
+                          "type": {
+                            "type": "instrinct",
+                            "name": "void"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "Disposable",
+                "id": 9
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            21
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Disposable",
+      "kind": 256,
+      "kindString": "Interface",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Provides a mechanism for releasing resources."
+      },
+      "children": [
+        {
+          "id": 10,
+          "name": "dispose",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 11,
+              "name": "dispose",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Performs tasks associated with freeing, releasing, or resetting resources."
+              },
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "id": 117,
+      "name": "Expression",
+      "kind": 256,
+      "kindString": "Interface",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Provides the base class from which the classes that represent expression tree nodes are derived."
+      },
+      "children": [
+        {
+          "id": 122,
+          "name": "assign",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 123,
+              "name": "assign",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Assigns a value to the property represented by the expression."
+              },
+              "parameters": [
+                {
+                  "id": 124,
+                  "name": "scope",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reference",
+                    "name": "Scope",
+                    "id": 6
+                  }
+                },
+                {
+                  "id": 125,
+                  "name": "value",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 126,
+                  "name": "lookupFunctions",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reference",
+                    "name": "LookupFunctions",
+                    "id": 31
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            }
+          ]
+        },
+        {
+          "id": 127,
+          "name": "connect",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 128,
+              "name": "connect",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Subscribes a binding instance to the property change events along the path of the expression."
+              },
+              "parameters": [
+                {
+                  "id": 129,
+                  "name": "binding",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reference",
+                    "name": "Binding",
+                    "id": 92
+                  }
+                },
+                {
+                  "id": 130,
+                  "name": "scope",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reference",
+                    "name": "Scope",
+                    "id": 6
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            }
+          ]
+        },
+        {
+          "id": 118,
+          "name": "evaluate",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 119,
+              "name": "evaluate",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Evaluates the expression using the provided scope and lookup functions."
+              },
+              "parameters": [
+                {
+                  "id": 120,
+                  "name": "scope",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reference",
+                    "name": "Scope",
+                    "id": 6
+                  }
+                },
+                {
+                  "id": 121,
+                  "name": "lookupFunctions",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reference",
+                    "name": "LookupFunctions",
+                    "id": 31
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "any"
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            122,
+            127,
+            118
+          ]
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "name": "InternalCollectionObserver",
+      "kind": 256,
+      "kindString": "Interface",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Observes collection mutation."
+      },
+      "children": [
+        {
+          "id": 74,
+          "name": "subscribe",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 75,
+              "name": "subscribe",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Subscribe to collection mutation events with a callback function."
+              },
+              "parameters": [
+                {
+                  "id": 76,
+                  "name": "callback",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reflection",
+                    "declaration": {
+                      "id": 77,
+                      "name": "__type",
+                      "kind": 65536,
+                      "kindString": "Type literal",
+                      "flags": {},
+                      "signatures": [
+                        {
+                          "id": 78,
+                          "name": "__call",
+                          "kind": 4096,
+                          "kindString": "Call signature",
+                          "flags": {},
+                          "parameters": [
+                            {
+                              "id": 79,
+                              "name": "changeRecords",
+                              "kind": 32768,
+                              "kindString": "Parameter",
+                              "flags": {},
+                              "type": {
+                                "type": "instrinct",
+                                "name": "any"
+                              }
+                            }
+                          ],
+                          "type": {
+                            "type": "instrinct",
+                            "name": "void"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            },
+            {
+              "id": 80,
+              "name": "subscribe",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Subscribe a callable object to collection mutation events."
+              },
+              "parameters": [
+                {
+                  "id": 81,
+                  "name": "context",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {
+                    "text": "A value to be passed to the callable object's call function when collection mutation occurs."
+                  },
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 82,
+                  "name": "callable",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {
+                    "text": "A callable object.\n"
+                  },
+                  "type": {
+                    "type": "reference",
+                    "name": "Callable",
+                    "id": 38
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            }
+          ]
+        },
+        {
+          "id": 83,
+          "name": "unsubscribe",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 84,
+              "name": "unsubscribe",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Unsubscribes a callback function from collection mutation changes."
+              },
+              "parameters": [
+                {
+                  "id": 85,
+                  "name": "callback",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reflection",
+                    "declaration": {
+                      "id": 86,
+                      "name": "__type",
+                      "kind": 65536,
+                      "kindString": "Type literal",
+                      "flags": {},
+                      "signatures": [
+                        {
+                          "id": 87,
+                          "name": "__call",
+                          "kind": 4096,
+                          "kindString": "Call signature",
+                          "flags": {},
+                          "parameters": [
+                            {
+                              "id": 88,
+                              "name": "changeRecords",
+                              "kind": 32768,
+                              "kindString": "Parameter",
+                              "flags": {},
+                              "type": {
+                                "type": "instrinct",
+                                "name": "any"
+                              }
+                            }
+                          ],
+                          "type": {
+                            "type": "instrinct",
+                            "name": "void"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            },
+            {
+              "id": 89,
+              "name": "unsubscribe",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Unsubscribes a callable object from collection mutation events."
+              },
+              "parameters": [
+                {
+                  "id": 90,
+                  "name": "context",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {
+                    "text": "A value to be passed to the callable object's call function when collection mutation occurs."
+                  },
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 91,
+                  "name": "callable",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {
+                    "text": "A callable object.\n"
+                  },
+                  "type": {
+                    "type": "reference",
+                    "name": "Callable",
+                    "id": 38
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            74,
+            83
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "name": "InternalPropertyObserver",
+      "kind": 256,
+      "kindString": "Interface",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Observes property changes."
+      },
+      "children": [
+        {
+          "id": 48,
+          "name": "getValue",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 49,
+              "name": "getValue",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Gets the property value."
+              },
+              "type": {
+                "type": "instrinct",
+                "name": "any"
+              }
+            }
+          ]
+        },
+        {
+          "id": 50,
+          "name": "setValue",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 51,
+              "name": "setValue",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Sets the property value."
+              },
+              "parameters": [
+                {
+                  "id": 52,
+                  "name": "newValue",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            }
+          ]
+        },
+        {
+          "id": 53,
+          "name": "subscribe",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 54,
+              "name": "subscribe",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Subscribe to property changes with a callback function."
+              },
+              "parameters": [
+                {
+                  "id": 55,
+                  "name": "callback",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reflection",
+                    "declaration": {
+                      "id": 56,
+                      "name": "__type",
+                      "kind": 65536,
+                      "kindString": "Type literal",
+                      "flags": {},
+                      "signatures": [
+                        {
+                          "id": 57,
+                          "name": "__call",
+                          "kind": 4096,
+                          "kindString": "Call signature",
+                          "flags": {},
+                          "parameters": [
+                            {
+                              "id": 58,
+                              "name": "newValue",
+                              "kind": 32768,
+                              "kindString": "Parameter",
+                              "flags": {},
+                              "type": {
+                                "type": "instrinct",
+                                "name": "any"
+                              }
+                            },
+                            {
+                              "id": 59,
+                              "name": "oldValue",
+                              "kind": 32768,
+                              "kindString": "Parameter",
+                              "flags": {},
+                              "type": {
+                                "type": "instrinct",
+                                "name": "any"
+                              }
+                            }
+                          ],
+                          "type": {
+                            "type": "instrinct",
+                            "name": "void"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            },
+            {
+              "id": 60,
+              "name": "subscribe",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Subscribe a callable object to property changes."
+              },
+              "parameters": [
+                {
+                  "id": 61,
+                  "name": "context",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {
+                    "text": "A value to be passed to the callable object's call function when a property change occurs."
+                  },
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 62,
+                  "name": "callable",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {
+                    "text": "A callable object.\n"
+                  },
+                  "type": {
+                    "type": "reference",
+                    "name": "Callable",
+                    "id": 38
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            }
+          ]
+        },
+        {
+          "id": 63,
+          "name": "unsubscribe",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 64,
+              "name": "unsubscribe",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Unsubscribes a callback function from property changes."
+              },
+              "parameters": [
+                {
+                  "id": 65,
+                  "name": "callback",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reflection",
+                    "declaration": {
+                      "id": 66,
+                      "name": "__type",
+                      "kind": 65536,
+                      "kindString": "Type literal",
+                      "flags": {},
+                      "signatures": [
+                        {
+                          "id": 67,
+                          "name": "__call",
+                          "kind": 4096,
+                          "kindString": "Call signature",
+                          "flags": {},
+                          "parameters": [
+                            {
+                              "id": 68,
+                              "name": "newValue",
+                              "kind": 32768,
+                              "kindString": "Parameter",
+                              "flags": {},
+                              "type": {
+                                "type": "instrinct",
+                                "name": "any"
+                              }
+                            },
+                            {
+                              "id": 69,
+                              "name": "oldValue",
+                              "kind": 32768,
+                              "kindString": "Parameter",
+                              "flags": {},
+                              "type": {
+                                "type": "instrinct",
+                                "name": "any"
+                              }
+                            }
+                          ],
+                          "type": {
+                            "type": "instrinct",
+                            "name": "void"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            },
+            {
+              "id": 70,
+              "name": "unsubscribe",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Unsubscribes a callable object from property changes."
+              },
+              "parameters": [
+                {
+                  "id": 71,
+                  "name": "context",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {
+                    "text": "A value to be passed to the callable object's call function when a property change occurs."
+                  },
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 72,
+                  "name": "callable",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {
+                    "text": "A callable object.\n"
+                  },
+                  "type": {
+                    "type": "reference",
+                    "name": "Callable",
+                    "id": 38
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "void"
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            48,
+            50,
+            53,
+            63
+          ]
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "name": "LookupFunctions",
+      "kind": 256,
+      "kindString": "Interface",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Lookup functions for value converter and binding behavior resources."
+      },
+      "children": [
+        {
+          "id": 32,
+          "name": "bindingBehaviors",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 33,
+              "name": "bindingBehaviors",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "parameters": [
+                {
+                  "id": 34,
+                  "name": "name",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "string"
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "any"
+              }
+            }
+          ]
+        },
+        {
+          "id": 35,
+          "name": "valueConverters",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 36,
+              "name": "valueConverters",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "parameters": [
+                {
+                  "id": 37,
+                  "name": "name",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "string"
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "any"
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            32,
+            35
+          ]
+        }
+      ]
+    },
+    {
+      "id": 135,
+      "name": "ObjectObservationAdapter",
+      "kind": 256,
+      "kindString": "Interface",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Provides efficient property observers for properties that would otherwise require dirty-checking."
+      },
+      "children": [
+        {
+          "id": 136,
+          "name": "getObserver",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 137,
+              "name": "getObserver",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "parameters": [
+                {
+                  "id": 138,
+                  "name": "object",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 139,
+                  "name": "propertyName",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "string"
+                  }
+                },
+                {
+                  "id": 140,
+                  "name": "descriptor",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reference",
+                    "name": "PropertyDescriptor"
+                  }
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "InternalPropertyObserver",
+                "id": 47
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            136
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "OverrideContext",
+      "kind": 256,
+      "kindString": "Interface",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "The \"parallel\" or \"artificial\" aspect of the binding scope. Provides access to the parent binding\ncontext and stores contextual bindable members such as $event, $index, $odd, etc. Members on this\nobject take precedence over members of the bindingContext object."
+      },
+      "children": [
+        {
+          "id": 5,
+          "name": "bindingContext",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true
+          },
+          "type": {
+            "type": "instrinct",
+            "name": "any"
+          }
+        },
+        {
+          "id": 4,
+          "name": "parentOverrideContext",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true
+          },
+          "type": {
+            "type": "reference",
+            "name": "OverrideContext",
+            "id": 3
+          }
+        }
+      ],
+      "groups": [
+        {
+          "title": "Properties",
+          "kind": 1024,
+          "children": [
+            5,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "PropertyObserver",
+      "kind": 256,
+      "kindString": "Interface",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Observes property changes."
+      },
+      "children": [
+        {
+          "id": 13,
+          "name": "subscribe",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 14,
+              "name": "subscribe",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Subscribe to property change events."
+              },
+              "parameters": [
+                {
+                  "id": 15,
+                  "name": "callback",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "reflection",
+                    "declaration": {
+                      "id": 16,
+                      "name": "__type",
+                      "kind": 65536,
+                      "kindString": "Type literal",
+                      "flags": {},
+                      "signatures": [
+                        {
+                          "id": 17,
+                          "name": "__call",
+                          "kind": 4096,
+                          "kindString": "Call signature",
+                          "flags": {},
+                          "parameters": [
+                            {
+                              "id": 18,
+                              "name": "newValue",
+                              "kind": 32768,
+                              "kindString": "Parameter",
+                              "flags": {},
+                              "type": {
+                                "type": "instrinct",
+                                "name": "any"
+                              }
+                            },
+                            {
+                              "id": 19,
+                              "name": "oldValue",
+                              "kind": 32768,
+                              "kindString": "Parameter",
+                              "flags": {},
+                              "type": {
+                                "type": "instrinct",
+                                "name": "any"
+                              }
+                            }
+                          ],
+                          "type": {
+                            "type": "instrinct",
+                            "name": "void"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "Disposable",
+                "id": 9
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "title": "Methods",
+          "kind": 2048,
+          "children": [
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Scope",
+      "kind": 256,
+      "kindString": "Interface",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "The two part binding scope. The first part is the bindingContext which represents the primary scope, typically a\nview-model instance and second the overrideContext"
+      },
+      "children": [
+        {
+          "id": 7,
+          "name": "bindingContext",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true
+          },
+          "comment": {
+            "shortText": "The primary aspect of the binding scope.  Typically a view-model instance."
+          },
+          "type": {
+            "type": "instrinct",
+            "name": "any"
+          }
+        },
+        {
+          "id": 8,
+          "name": "overrideContext",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true
+          },
+          "comment": {
+            "shortText": "The \"parallel\" or \"artificial\" aspect of the binding scope. Provides access to the parent binding\ncontext and stores contextual bindable members such as $event, $index, $odd, etc. Members on this\nobject take precedence over members of the bindingContext object."
+          },
+          "type": {
+            "type": "reference",
+            "name": "OverrideContext",
+            "id": 3
+          }
+        }
+      ],
+      "groups": [
+        {
+          "title": "Properties",
+          "kind": 1024,
+          "children": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "id": 193,
+      "name": "bindingBehavior",
+      "kind": 64,
+      "kindString": "Function",
+      "flags": {
+        "isExported": true
+      },
+      "signatures": [
+        {
+          "id": 194,
+          "name": "bindingBehavior",
+          "kind": 4096,
+          "kindString": "Call signature",
+          "flags": {},
+          "comment": {
+            "shortText": "Decorator: Indicates that the decorated class is a binding behavior."
+          },
+          "parameters": [
+            {
+              "id": 195,
+              "name": "name",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {},
+              "comment": {
+                "text": "The name of the binding behavior.\n"
+              },
+              "type": {
+                "type": "instrinct",
+                "name": "string"
+              }
+            }
+          ],
+          "type": {
+            "type": "instrinct",
+            "name": "any"
+          }
+        }
+      ]
+    },
+    {
+      "id": 187,
+      "name": "computedFrom",
+      "kind": 64,
+      "kindString": "Function",
+      "flags": {
+        "isExported": true
+      },
+      "signatures": [
+        {
+          "id": 188,
+          "name": "computedFrom",
+          "kind": 4096,
+          "kindString": "Call signature",
+          "flags": {},
+          "comment": {
+            "shortText": "Decorator: Indicates that the decorated property is computed from other properties."
+          },
+          "parameters": [
+            {
+              "id": 189,
+              "name": "propertyNames",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {
+                "isRest": true
+              },
+              "comment": {
+                "text": "The names of the properties the decorated property is computed from.  Simple property names, not expressions.\n"
+              },
+              "type": {
+                "type": "instrinct",
+                "isArray": true,
+                "name": "string"
+              }
+            }
+          ],
+          "type": {
+            "type": "instrinct",
+            "name": "any"
+          }
+        }
+      ]
+    },
+    {
+      "id": 182,
+      "name": "declarePropertyDependencies",
+      "kind": 64,
+      "kindString": "Function",
+      "flags": {
+        "isExported": true
+      },
+      "signatures": [
+        {
+          "id": 183,
+          "name": "declarePropertyDependencies",
+          "kind": 4096,
+          "kindString": "Call signature",
+          "flags": {},
+          "comment": {
+            "shortText": "Declares a property's dependencies."
+          },
+          "parameters": [
+            {
+              "id": 184,
+              "name": "ctor",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {},
+              "type": {
+                "type": "instrinct",
+                "name": "any"
+              }
+            },
+            {
+              "id": 185,
+              "name": "propertyName",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {},
+              "type": {
+                "type": "instrinct",
+                "name": "string"
+              }
+            },
+            {
+              "id": 186,
+              "name": "dependencies",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {},
+              "type": {
+                "type": "instrinct",
+                "isArray": true,
+                "name": "string"
+              }
+            }
+          ],
+          "type": {
+            "type": "instrinct",
+            "name": "void"
+          }
+        }
+      ]
+    },
+    {
+      "id": 179,
+      "name": "hasDeclaredDependencies",
+      "kind": 64,
+      "kindString": "Function",
+      "flags": {
+        "isExported": true
+      },
+      "signatures": [
+        {
+          "id": 180,
+          "name": "hasDeclaredDependencies",
+          "kind": 4096,
+          "kindString": "Call signature",
+          "flags": {},
+          "comment": {
+            "shortText": "Returns whether a property's dependencies have been declared."
+          },
+          "parameters": [
+            {
+              "id": 181,
+              "name": "descriptor",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {},
+              "type": {
+                "type": "reference",
+                "name": "PropertyDescriptor"
+              }
+            }
+          ],
+          "type": {
+            "type": "instrinct",
+            "name": "boolean"
+          }
+        }
+      ]
+    },
+    {
+      "id": 190,
+      "name": "valueConverter",
+      "kind": 64,
+      "kindString": "Function",
+      "flags": {
+        "isExported": true
+      },
+      "signatures": [
+        {
+          "id": 191,
+          "name": "valueConverter",
+          "kind": 4096,
+          "kindString": "Call signature",
+          "flags": {},
+          "comment": {
+            "shortText": "Decorator: Indicates that the decorated class is a value converter."
+          },
+          "parameters": [
+            {
+              "id": 192,
+              "name": "name",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {},
+              "comment": {
+                "text": "The name of the value converter.\n"
+              },
+              "type": {
+                "type": "instrinct",
+                "name": "string"
+              }
+            }
+          ],
+          "type": {
+            "type": "instrinct",
+            "name": "any"
+          }
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "title": "Enumerations",
+      "kind": 4,
+      "children": [
+        27
+      ]
+    },
+    {
+      "title": "Classes",
+      "kind": 128,
+      "children": [
+        155,
+        141,
+        131
+      ]
+    },
+    {
+      "title": "Interfaces",
+      "kind": 256,
+      "children": [
+        92,
+        113,
+        38,
+        20,
+        9,
+        117,
+        73,
+        47,
+        31,
+        135,
+        3,
+        12,
+        6
+      ]
+    },
+    {
+      "title": "Functions",
+      "kind": 64,
+      "children": [
+        193,
+        187,
+        182,
+        179,
+        190
+      ]
+    }
+  ]
+}

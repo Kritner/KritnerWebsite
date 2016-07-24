@@ -45,3 +45,7 @@ textarea {
     display: none
   }
 }
+
+.loading {
+    font-size: 20px;
+}

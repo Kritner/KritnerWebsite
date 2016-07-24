@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-KritnerWebsite-87fc6dd7-a099-4ee6-8198-b15f2492b119",
 
   "dependencies": {
@@ -40,7 +40,8 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "AutoMapper": "4.2.1"
+    "AutoMapper": "5.0.2",
+    "System.Xml.XPath": "4.0.1"
   },
 
   "tools": {

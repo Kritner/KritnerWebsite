@@ -1,0 +1,32 @@
+{
+  "name": "aurelia-task-queue",
+  "version": "0.9.0",
+  "description": "A simple task queue for the browser that enables the queuing of both standard tasks and micro tasks.",
+  "keywords": [
+    "aurelia",
+    "queue",
+    "task",
+    "micro task"
+  ],
+  "homepage": "http://aurelia.io",
+  "license": "MIT",
+  "authors": [
+    "Rob Eisenberg <rob@bluespire.com> (http://robeisenberg.com/)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/aurelia/task-queue"
+  },
+  "dependencies": {
+    "aurelia-pal": "^0.3.0"
+  },
+  "_release": "0.9.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.9.0",
+    "commit": "667ef2583c497cc2deed1d1770d9bba43bdb5877"
+  },
+  "_source": "https://github.com/aurelia/task-queue.git",
+  "_target": "^0.9.0",
+  "_originalSource": "aurelia-task-queue"
+}

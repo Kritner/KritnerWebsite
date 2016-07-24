@@ -13,12 +13,12 @@ namespace KritnerWebsite.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Blog()
         {
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult About()
         {
             return View();
         }

@@ -1,0 +1,8 @@
+.blogEntryDiv
+{
+    background-color:#121212;
+    padding:10px;
+    margin-bottom:10px;
+    opacity:0.95;
+    word-wrap: break-word;
+}
