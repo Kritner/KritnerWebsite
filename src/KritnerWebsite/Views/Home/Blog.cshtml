@@ -16,7 +16,7 @@
 
 <div data-bind="visible: !isLoading(), foreach: blogs" class="blogEntryDiv">
     <br />
-    <span data-bind="text: entryPostedDate"></span>
+    <span data-bind="text: moment(entryPostedDate).format('MMMM Do YYYY, h:mm:ss a')"></span>
     <br />
     <h3>
         <a data-bind="attr: { href: blogEntryLink }, text: title" class="blogEntryTitle"></a>
@@ -31,5 +31,9 @@
 @section scripts {
     <environment names="Development">
         <script src="~/js/blog.js" asp-append-version="true"></script>
+        <script src="~/lib/momentjs/moment.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/lib/momentjs/min/moment.min.js"></script>
     </environment>
 }
