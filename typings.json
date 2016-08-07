@@ -1,0 +1,6 @@
+{
+  "globalDependencies": {
+    "angular": "registry:dt/angular#1.5.0+20160802155123",
+    "angular-route": "registry:dt/angular-route#1.3.0+20160317120654"
+  }
+}
