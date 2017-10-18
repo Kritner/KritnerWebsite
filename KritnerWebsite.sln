@@ -1,16 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8CCC1151-D6E6-4835-A684-00A4787E4B28}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6F02A5F2-3FFD-4AFE-923A-47421D646594}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "KritnerWebsite", "src\KritnerWebsite\KritnerWebsite.xproj", "{2FCCAC46-2B17-41CB-9E56-87AE3B230BF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KritnerWebsite", "src\KritnerWebsite\KritnerWebsite.csproj", "{2FCCAC46-2B17-41CB-9E56-87AE3B230BF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,5 +25,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2FCCAC46-2B17-41CB-9E56-87AE3B230BF2} = {8CCC1151-D6E6-4835-A684-00A4787E4B28}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62F0982E-D7AD-41E7-97B7-610B861A3B3E}
 	EndGlobalSection
 EndGlobal
