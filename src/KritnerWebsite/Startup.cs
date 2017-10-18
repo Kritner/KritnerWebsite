@@ -46,7 +46,7 @@ namespace KritnerWebsite
             services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlite("Data source=websitedb.sqlite"));
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => {
