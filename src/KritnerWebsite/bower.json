@@ -12,7 +12,6 @@
     "angular": "1.5.5",
     "angular-route": "~1.5.7",
     "knockoutjs": "~3.4.0",
-    "aurelia-framework": "~0.18.0",
     "requirejs": "~2.2.0",
     "momentjs": "~2.14.1"
   },

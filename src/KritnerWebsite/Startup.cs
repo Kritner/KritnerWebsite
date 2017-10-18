@@ -25,36 +25,19 @@ using System.IO;
 using Microsoft.AspNetCore.Http;
 using KritnerWebsite.Models.HomeModels;
 using KritnerWebsite.Models.HomeViewModels;
+using Microsoft.AspNetCore.Identity;
+using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace KritnerWebsite
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IConfiguration configuration)
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
-
-            if (env.IsDevelopment())
-            {
-                // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
-                builder.AddUserSecrets();
-
-                // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
-                builder.AddApplicationInsightsSettings(developerMode: true);
-            }
-            else
-            {
-                builder.AddApplicationInsightsSettings(developerMode: false);
-            }
-
-            builder.AddEnvironmentVariables();
-            Configuration = builder.Build();
+            Configuration = configuration;
         }
 
-        public IConfigurationRoot Configuration { get; }
+        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -65,25 +48,13 @@ namespace KritnerWebsite
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>(config =>
-            {
-                config.User.RequireUniqueEmail = true;
-                config.Password.RequiredLength = 8;
-                config.Cookies.ApplicationCookie.LoginPath = "/Account/Login";
-                config.Cookies.ApplicationCookie.Events = new CookieAuthenticationEvents()
-                {
-                    OnRedirectToLogin = ctx =>
-                    {
-                        if (ctx.Request.Path.StartsWithSegments("/api") &&
-                            ctx.Response.StatusCode == (int)HttpStatusCode.OK)
-                            ctx.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                        else
-                            ctx.Response.Redirect(ctx.RedirectUri);
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options => {
+                    options.LoginPath = "/Account/LogIn";
+                    options.LogoutPath = "/Account/LogOff";
+                });
 
-                        return Task.FromResult(0);
-                    }
-                };
-            })
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
@@ -91,12 +62,8 @@ namespace KritnerWebsite
             services.AddMvc();
 
             // Add application services.
-            services.AddEntityFramework()
-                .AddDbContext<ApplicationDbContext>();
-            services.AddTransient<IEmailSender, AuthMessageSender>();
-            services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IBlogRetrieval, BlogRetrievalService>();
-
             services.AddScoped<ICareGiverRepository, CareGiverRepository>();
         }
 
@@ -104,11 +71,9 @@ namespace KritnerWebsite
         public void Configure(
             IApplicationBuilder app, 
             IHostingEnvironment env, 
-            ILoggerFactory loggerFactory,
-            ApplicationDbContext context
+            ILoggerFactory loggerFactory
         )
         {
-            app.UseApplicationInsightsRequestTelemetry();
 
             if (env.IsDevelopment())
             {
@@ -123,8 +88,6 @@ namespace KritnerWebsite
                 app.UseExceptionHandler("/Shared/Error");
             }
 
-            app.UseApplicationInsightsExceptionTelemetry();
-
             app.UseStaticFiles();
 
             // Allow static files within the .well-known directory to allow for automatic SSL renewal
@@ -136,7 +99,7 @@ namespace KritnerWebsite
                 RequestPath = new PathString("/.well-known")
             });
 
-            app.UseIdentity();
+            app.UseAuthentication();
 
             Mapper.Initialize(config =>
             {
