@@ -1,7 +1,7 @@
 # docker build -t kritnerwebsite .
 # docker run -d -p 80:5000 -p 443:5001 kritnerwebsite
 
-FROM kritner/basedotnetcore2.1_node
+FROM kritner/builddotnetcore:dnc2.1-v1-node
 WORKDIR /app
 
 # Using 5000 for http, 5001 for https
