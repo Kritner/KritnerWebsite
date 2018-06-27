@@ -1,0 +1,20 @@
+version: '3.6'
+services:
+  
+  kritner-website-web:
+    build:
+      context: ../src/KritnerWebsite.Web
+      dockerfile: Dockerfile
+    image: ${DOCKER_REGISTRY}/kritnerwebsite
+    expose:
+      - "5000"
+      - "5001"
+    ports:
+      - "80:5000"
+      - "443:5001"
+    networks:
+      - frontend
+    container_name: kritner_web
+
+networks:
+  frontend:
