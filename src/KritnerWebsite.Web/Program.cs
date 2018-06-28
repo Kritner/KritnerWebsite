@@ -19,7 +19,7 @@ namespace KritnerWebsite.Web
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseUrls("http://*:5000", "https://*:5001")
+                .UseUrls("http://*:5000")
                 .UseKestrel()
                 .UseStartup<Startup>();
     }
