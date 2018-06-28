@@ -8,13 +8,20 @@ services:
     image: ${DOCKER_REGISTRY}/kritnerwebsite
     expose:
       - "5000"
-      - "5001"
-    ports:
-      - "80:5000"
-      - "443:5001"
     networks:
       - frontend
-    container_name: kritner_web
+    container_name: kritnerwebsite_web
+  kritner-website-nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ../src/nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - kritner-website-web
+    networks:
+      - frontend
+    container_name: kritnerwebsite_nginx
 
 networks:
   frontend:
