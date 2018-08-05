@@ -27,5 +27,26 @@ namespace KritnerWebsite.Business.Helpers
 
             return new YearlyElectricityUsage(monthlyCollection2017);
         }
+
+        public static YearlyElectricityUsage GetUsageWithPanelsMortgage()
+        {
+            List<MonthlyElectrictyUsage> panelExampleFrom2017Usage = new List<MonthlyElectrictyUsage>()
+            {
+                new MonthlyElectrictyUsage(new DateTime(2017, 1, 1), 1279, 189m),
+                new MonthlyElectrictyUsage(new DateTime(2017, 2, 1), 1035, 189m),
+                new MonthlyElectrictyUsage(new DateTime(2017, 3, 1), 1063, 189m),
+                new MonthlyElectrictyUsage(new DateTime(2017, 4, 1), 1075, 189m),
+                new MonthlyElectrictyUsage(new DateTime(2017, 5, 1), 1123, 189m),
+                new MonthlyElectrictyUsage(new DateTime(2017, 6, 1), 1986, 189m),
+                new MonthlyElectrictyUsage(new DateTime(2017, 7, 1), 2191, 189m),
+                new MonthlyElectrictyUsage(new DateTime(2017, 8, 1), 1926, 189m),
+                new MonthlyElectrictyUsage(new DateTime(2017, 9, 1), 1673, 189m),
+                new MonthlyElectrictyUsage(new DateTime(2017, 10, 1), 1196, 189m),
+                new MonthlyElectrictyUsage(new DateTime(2017, 11, 1), 1201, 189m),
+                new MonthlyElectrictyUsage(new DateTime(2017, 12, 1), 1271, 189m)
+            };
+
+            return new YearlyElectricityUsage(panelExampleFrom2017Usage);
+        }
     }
 }
