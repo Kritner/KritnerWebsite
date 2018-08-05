@@ -1,14 +1,21 @@
 ﻿using KritnerWebsite.Business.Models;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace KritnerWebsite.Business.Helpers
+namespace KritnerWebsite.Business.Tests.Models
 {
-    public static class ElectricityDataHelper
+    [TestFixture]
+    public class YearlyElectricityUsageTests
     {
-        public static YearlyElectricityUsage GetUsageBge2017()
+        private YearlyElectricityUsage _subject;
+
+        [Test]
+        public void ShouldMatchActualUsageFromSampleData()
         {
+            // Note duplicate of static data defined in ElectricityDataHelper.GetUsageBge2017
+            // Defining here in case that data is ever changed
             List<MonthlyElectrictyUsage> monthlyCollection2017 = new List<MonthlyElectrictyUsage>()
             {
                 new MonthlyElectrictyUsage(new DateTime(2017, 1, 1), 1279, 184.03m),
@@ -25,7 +32,13 @@ namespace KritnerWebsite.Business.Helpers
                 new MonthlyElectrictyUsage(new DateTime(2017, 12, 1), 1271, 170.44m)
             };
 
-            return new YearlyElectricityUsage(monthlyCollection2017);
+            _subject = new YearlyElectricityUsage(monthlyCollection2017);
+
+            // Pulling expected values from spreadsheet calculations
+            Assert.AreEqual(17019, _subject.TotalKiloWattHours, nameof(_subject.TotalKiloWattHours));
+            Assert.AreEqual(2357.22, _subject.TotalCost, nameof(_subject.TotalCost));
+            Assert.AreEqual(196.435, _subject.AverageCostPerMonth, nameof(_subject.AverageCostPerMonth));
+            Assert.AreEqual(Math.Round(0.1385052001m, 3), Math.Round(_subject.AverageCostKiloWattHour, 3), nameof(_subject.AverageCostKiloWattHour));
         }
     }
 }
