@@ -1,4 +1,5 @@
-﻿using KritnerWebsite.Business.Models;
+﻿using KritnerWebsite.Business.Helpers;
+using KritnerWebsite.Business.Models;
 using KritnerWebsite.Business.Services;
 using NUnit.Framework;
 using System;
@@ -43,7 +44,7 @@ namespace KritnerWebsite.Business.Tests.Services
             for (int i = 1; i < yearsToProject; i++)
             {
                 Assert.AreEqual(
-                    CompoundInterest(ORIGINAL_COST, PERCENT_INCREASE_PER_YEAR, 1, i), 
+                    FormulaHelpers.CompoundInterest(ORIGINAL_COST, PERCENT_INCREASE_PER_YEAR, 1, i), 
                     result.BgeFutureProjection[i].MonthlyUsage[0].Cost, 
                     .01,
                     $"{i} index Cost");
@@ -56,11 +57,6 @@ namespace KritnerWebsite.Business.Tests.Services
             {
                 new MonthlyElectrictyUsage(new DateTime(), ORIGINAL_KWH, ORIGINAL_COST)
             });
-        }
-
-        private static double CompoundInterest(double principal, double interestRate, int compoundsPerYear, int timeInYears)
-        {
-            return principal * Math.Pow(1 + (interestRate / compoundsPerYear), compoundsPerYear * timeInYears);
         }
     }
 }
