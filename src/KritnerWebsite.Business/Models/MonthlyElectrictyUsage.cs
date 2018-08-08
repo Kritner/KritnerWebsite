@@ -6,7 +6,7 @@ namespace KritnerWebsite.Business.Models
 {
     public class MonthlyElectrictyUsage
     {
-        public MonthlyElectrictyUsage(DateTime billingPeriodStart, int kiloWattHours, decimal cost)
+        public MonthlyElectrictyUsage(DateTime billingPeriodStart, int kiloWattHours, double cost)
         {
             BillingPeriodStart = billingPeriodStart;
             KiloWattHours = kiloWattHours;
@@ -15,7 +15,7 @@ namespace KritnerWebsite.Business.Models
 
         public DateTime BillingPeriodStart { get; }
         public int KiloWattHours { get; }
-        public decimal Cost { get; }
-        public decimal CostPerKiloWattHour => Cost / KiloWattHours;
+        public double Cost { get; }
+        public double CostPerKiloWattHour => Cost / KiloWattHours;
     }
 }

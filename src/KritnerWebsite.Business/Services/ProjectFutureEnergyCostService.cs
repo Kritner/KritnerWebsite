@@ -26,7 +26,7 @@ namespace KritnerWebsite.Business.Services
                     monthlyUsage.Add(new MonthlyElectrictyUsage(
                         month.BillingPeriodStart, 
                         month.KiloWattHours, 
-                        month.Cost * projectionParameters.PercentIncreasePerYear
+                        month.Cost + (month.Cost * projectionParameters.PercentIncreasePerYear)
                     ));
                 }
 

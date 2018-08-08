@@ -12,8 +12,8 @@ namespace KritnerWebsite.Business.Tests.Services
     {
         private readonly ProjectFutureEnergyCostService _subject = new ProjectFutureEnergyCostService();
         private const int ORIGINAL_KWH = 1000;
-        private const int PERCENT_INCREASE_PER_YEAR = 10;
-        private const decimal ORIGINAL_COST = 100;
+        private const double PERCENT_INCREASE_PER_YEAR = .1;
+        private const double ORIGINAL_COST = 100;
         
         [Test]
         [TestCase(1)]
@@ -39,11 +39,14 @@ namespace KritnerWebsite.Business.Tests.Services
             );
 
             var sample = GetSampleData();
-            Assert.AreEqual(sample.AverageCostPerMonth, result.BgeFutureProjection[0].AverageCostPerMonth, $"Index 0 should be unchanged");
+            Assert.AreEqual(ORIGINAL_COST, result.BgeFutureProjection[0].MonthlyUsage[0].Cost, $"Index 0 should be unchanged");
             for (int i = 1; i < yearsToProject; i++)
             {
-                // TODO
-                throw new NotImplementedException();
+                Assert.AreEqual(
+                    CompoundInterest(ORIGINAL_COST, PERCENT_INCREASE_PER_YEAR, 1, i), 
+                    result.BgeFutureProjection[i].MonthlyUsage[0].Cost, 
+                    .01,
+                    $"{i} index Cost");
             }
         }
 
@@ -53,6 +56,11 @@ namespace KritnerWebsite.Business.Tests.Services
             {
                 new MonthlyElectrictyUsage(new DateTime(), ORIGINAL_KWH, ORIGINAL_COST)
             });
+        }
+
+        private static double CompoundInterest(double principal, double interestRate, int compoundsPerYear, int timeInYears)
+        {
+            return principal * Math.Pow(1 + (interestRate / compoundsPerYear), compoundsPerYear * timeInYears);
         }
     }
 }

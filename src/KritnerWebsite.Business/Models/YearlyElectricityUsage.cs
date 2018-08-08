@@ -14,8 +14,8 @@ namespace KritnerWebsite.Business.Models
 
         public List<MonthlyElectrictyUsage> MonthlyUsage { get; }
         public int TotalKiloWattHours => MonthlyUsage.Sum(s => s.KiloWattHours);
-        public decimal TotalCost => MonthlyUsage.Sum(s => s.Cost);
-        public decimal AverageCostKiloWattHour => MonthlyUsage.Average(a => a.CostPerKiloWattHour);
-        public decimal AverageCostPerMonth => TotalCost / MonthlyUsage.Count;
+        public double TotalCost => MonthlyUsage.Sum(s => s.Cost);
+        public double AverageCostKiloWattHour => MonthlyUsage.Average(a => a.CostPerKiloWattHour);
+        public double AverageCostPerMonth => TotalCost / MonthlyUsage.Count;
     }
 }

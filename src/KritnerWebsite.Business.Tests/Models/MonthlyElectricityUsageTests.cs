@@ -17,8 +17,8 @@ namespace KritnerWebsite.Business.Tests.Models
         [TestCase(2000, 150, .075)]
         public void ShouldCalculateCorrectCostPerKiloWattHour(
             int kiloWattHours, 
-            decimal cost, 
-            decimal expectedCostPerKiloWattHour
+            double cost, 
+            double expectedCostPerKiloWattHour
         )
         {
             _subject = new MonthlyElectrictyUsage(new DateTime(), kiloWattHours, cost);
