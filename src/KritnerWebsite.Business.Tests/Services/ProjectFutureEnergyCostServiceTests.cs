@@ -43,7 +43,7 @@ namespace KritnerWebsite.Business.Tests.Services
             for (int i = 1; i < yearsToProject; i++)
             {
                 // TODO
-                throw new NotImplementedException()
+                throw new NotImplementedException();
             }
         }
 
