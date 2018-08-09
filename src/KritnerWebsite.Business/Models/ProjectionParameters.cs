@@ -7,7 +7,7 @@ namespace KritnerWebsite.Business.Models
     public class ProjectionParameters
     {
         public ProjectionParameters(
-            YearlyElectricityUsage originalYearlyUsage,
+            YearlyElectricityUsageFromMonthly originalYearlyUsage,
             int yearsToProject,
             double percentIncreasePerYear
         )
@@ -17,7 +17,7 @@ namespace KritnerWebsite.Business.Models
             PercentIncreasePerYear = percentIncreasePerYear;
         }
 
-        public YearlyElectricityUsage OriginalYearlyUsage { get; }
+        public IYearlyElectricityUsage OriginalYearlyUsage { get; }
         public int YearsToProject { get; }
         public double PercentIncreasePerYear { get; }
     }

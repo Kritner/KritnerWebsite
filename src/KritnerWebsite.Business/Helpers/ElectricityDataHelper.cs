@@ -7,7 +7,7 @@ namespace KritnerWebsite.Business.Helpers
 {
     public static class ElectricityDataHelper
     {
-        public static YearlyElectricityUsage GetUsageBge2017()
+        public static YearlyElectricityUsageFromMonthly GetUsageBge2017()
         {
             List<MonthlyElectrictyUsage> monthlyCollection2017 = new List<MonthlyElectrictyUsage>()
             {
@@ -25,10 +25,10 @@ namespace KritnerWebsite.Business.Helpers
                 new MonthlyElectrictyUsage(new DateTime(2017, 12, 1), 1271, 170.44)
             };
 
-            return new YearlyElectricityUsage(monthlyCollection2017);
+            return new YearlyElectricityUsageFromMonthly(monthlyCollection2017);
         }
 
-        public static YearlyElectricityUsage GetUsageWithPanelsMortgage()
+        public static YearlyElectricityUsageFromMonthly GetUsageWithPanelsMortgage()
         {
             List<MonthlyElectrictyUsage> panelExampleFrom2017Usage = new List<MonthlyElectrictyUsage>()
             {
@@ -46,7 +46,7 @@ namespace KritnerWebsite.Business.Helpers
                 new MonthlyElectrictyUsage(new DateTime(2017, 12, 1), 1271, 189)
             };
 
-            return new YearlyElectricityUsage(panelExampleFrom2017Usage);
+            return new YearlyElectricityUsageFromMonthly(panelExampleFrom2017Usage);
         }
     }
 }

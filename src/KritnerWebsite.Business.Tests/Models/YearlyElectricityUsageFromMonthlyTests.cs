@@ -7,9 +7,9 @@ using System.Text;
 namespace KritnerWebsite.Business.Tests.Models
 {
     [TestFixture]
-    public class YearlyElectricityUsageTests
+    public class YearlyElectricityUsageTestsFromMonthly
     {
-        private YearlyElectricityUsage _subject;
+        private YearlyElectricityUsageFromMonthly _subject;
 
         [Test]
         public void ShouldMatchActualUsageFromSampleData()
@@ -32,7 +32,7 @@ namespace KritnerWebsite.Business.Tests.Models
                 new MonthlyElectrictyUsage(new DateTime(2017, 12, 1), 1271, 170.44)
             };
 
-            _subject = new YearlyElectricityUsage(monthlyCollection2017);
+            _subject = new YearlyElectricityUsageFromMonthly(monthlyCollection2017);
 
             // Pulling expected values from spreadsheet calculations
             Assert.AreEqual(17019, _subject.TotalKiloWattHours, nameof(_subject.TotalKiloWattHours));

@@ -7,15 +7,15 @@ namespace KritnerWebsite.Business.Models
     public class SolarBgeProjection
     {
         public SolarBgeProjection(
-            YearlyElectricityUsage solarEstimate, 
-            Dictionary<int, YearlyElectricityUsage> bgeFutureProjection
+            IYearlyElectricityUsage solarEstimate, 
+            Dictionary<int, IYearlyElectricityUsage> bgeFutureProjection
         )
         {
             SolarEstimate = solarEstimate;
             BgeFutureProjection = bgeFutureProjection;
         }
 
-        public YearlyElectricityUsage SolarEstimate { get; }
-        public Dictionary<int, YearlyElectricityUsage> BgeFutureProjection { get; }
+        public IYearlyElectricityUsage SolarEstimate { get; }
+        public Dictionary<int, IYearlyElectricityUsage> BgeFutureProjection { get; }
     }
 }

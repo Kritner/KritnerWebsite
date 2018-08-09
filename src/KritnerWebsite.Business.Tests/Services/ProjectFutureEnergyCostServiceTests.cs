@@ -40,20 +40,19 @@ namespace KritnerWebsite.Business.Tests.Services
             );
 
             var sample = GetSampleData();
-            Assert.AreEqual(ORIGINAL_COST, result.BgeFutureProjection[0].MonthlyUsage[0].Cost, $"Index 0 should be unchanged");
             for (int i = 1; i < yearsToProject; i++)
             {
                 Assert.AreEqual(
                     FormulaHelpers.CompoundInterest(ORIGINAL_COST, PERCENT_INCREASE_PER_YEAR, 1, i), 
-                    result.BgeFutureProjection[i].MonthlyUsage[0].Cost, 
+                    result.BgeFutureProjection[i].TotalCost, 
                     .01,
                     $"{i} index Cost");
             }
         }
 
-        private static YearlyElectricityUsage GetSampleData()
+        private static YearlyElectricityUsageFromMonthly GetSampleData()
         {
-            return new YearlyElectricityUsage(new List<MonthlyElectrictyUsage>()
+            return new YearlyElectricityUsageFromMonthly(new List<MonthlyElectrictyUsage>()
             {
                 new MonthlyElectrictyUsage(new DateTime(), ORIGINAL_KWH, ORIGINAL_COST)
             });
