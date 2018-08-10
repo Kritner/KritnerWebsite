@@ -1,4 +1,5 @@
 ﻿using KritnerWebsite.Business.Helpers;
+using KritnerWebsite.Business.Interfaces;
 using KritnerWebsite.Business.Models;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace KritnerWebsite.Business.Services
 {
-    public class ProjectFutureEnergyCostService
+    public class ProjectFutureEnergyCostService : IProjectFutureEnergyCostService
     {
         public SolarBgeProjection CalculateFutureProjection(
             IYearlyElectricityUsage solarEstimate, 
