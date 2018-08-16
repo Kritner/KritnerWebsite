@@ -1,0 +1,22 @@
+<h1>Solar Projection</h1>
+
+<p *ngIf="!solarProjection"><em>Loading...</em></p>
+
+<table class='table' *ngIf="solarProjection">
+  <thead>
+    <tr>
+      <th>Total Cost</th>
+      <th>Total Kw/h</th>
+      <th>Avg. Cost/month</th>
+      <th>Avg. Cost/Kw/h</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ solarProjection.solarEstimate.totalCost }}</td>
+      <td>{{ solarProjection.solarEstimate.totalKiloWattHours }}</td>
+      <td>{{ solarProjection.solarEstimate.averageCostPerMonth }}</td>
+      <td>{{ solarProjection.solarEstimate.averageCostKiloWattHour }}</td>
+    </tr>
+  </tbody>
+</table>
