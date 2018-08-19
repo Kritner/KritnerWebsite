@@ -4,9 +4,9 @@ using System.Text;
 
 namespace KritnerWebsite.Business.Models
 {
-    public class MonthlyElectrictyUsage
+    public class MonthlyKwhUsage
     {
-        public MonthlyElectrictyUsage(DateTime billingPeriodStart, int kiloWattHours, double cost)
+        public MonthlyKwhUsage(DateTime billingPeriodStart, int kiloWattHours, double cost)
         {
             BillingPeriodStart = billingPeriodStart;
             KiloWattHours = kiloWattHours;

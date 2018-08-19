@@ -1,6 +1,6 @@
 ﻿namespace KritnerWebsite.Business.Models
 {
-    public interface IYearlyElectricityUsage
+    public interface IYearlyKwhUsage
     {
         double AverageCostKiloWattHour { get; }
         double AverageCostPerMonth { get; }

@@ -9,24 +9,24 @@ namespace KritnerWebsite.Business.Services
 {
     public class ProjectFutureEnergyCostService : IProjectFutureEnergyCostService
     {
-        public SolarBgeProjection CalculateFutureProjection(
-            IYearlyElectricityUsage solarEstimate, 
+        public SolarVsUtilityProjection CalculateFutureProjection(
+            IYearlyKwhUsage solarEstimate, 
             ProjectionParameters projectionParameters
         )
         {
-            var projection = new Dictionary<int, IYearlyElectricityUsage>();
+            var projection = new Dictionary<int, IYearlyKwhUsage>();
             var original = projectionParameters.OriginalYearlyUsage;
 
             // Each year to project
             for (int i = 0; i < projectionParameters.YearsToProject; i++)
             {
-                projection.Add(i, new YearlyElectricityUsageFromAnnual(
+                projection.Add(i, new YearlyKwhUsageFromAnnual(
                     FormulaHelpers.CompoundInterest(original.TotalCost, projectionParameters.PercentIncreasePerYear, 1, i), 
                     original.TotalKiloWattHours
                 ));
             }
 
-            return new SolarBgeProjection(solarEstimate, projection);
+            return new SolarVsUtilityProjection(solarEstimate, projection);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace KritnerWebsite.Web.Controllers
         }
 
         [HttpGet("[action]")]
-        public SolarBgeProjection GetProjection()
+        public SolarVsUtilityProjection GetProjection()
         {
             return _service.CalculateFutureProjection(
                 ElectricityDataHelper.GetUsageWithPanelsMortgage(),

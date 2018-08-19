@@ -3,9 +3,9 @@ using System.Text;
 
 namespace KritnerWebsite.Business.Models
 {
-    public class YearlyElectricityUsageFromAnnual : IYearlyElectricityUsage
+    public class YearlyKwhUsageFromAnnual : IYearlyKwhUsage
     {
-        public YearlyElectricityUsageFromAnnual(double totalCost, int totalKiloWattHours)
+        public YearlyKwhUsageFromAnnual(double totalCost, int totalKiloWattHours)
         {
             TotalCost = totalCost;
             TotalKiloWattHours = totalKiloWattHours;

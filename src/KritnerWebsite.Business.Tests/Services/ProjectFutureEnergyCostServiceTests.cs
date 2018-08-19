@@ -50,11 +50,11 @@ namespace KritnerWebsite.Business.Tests.Services
             }
         }
 
-        private static YearlyElectricityUsageFromMonthly GetSampleData()
+        private static YearlyKwhUsageFromMonthly GetSampleData()
         {
-            return new YearlyElectricityUsageFromMonthly(new List<MonthlyElectrictyUsage>()
+            return new YearlyKwhUsageFromMonthly(new List<MonthlyKwhUsage>()
             {
-                new MonthlyElectrictyUsage(new DateTime(), ORIGINAL_KWH, ORIGINAL_COST)
+                new MonthlyKwhUsage(new DateTime(), ORIGINAL_KWH, ORIGINAL_COST)
             });
         }
     }

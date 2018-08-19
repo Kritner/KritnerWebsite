@@ -7,9 +7,9 @@ using System.Text;
 namespace KritnerWebsite.Business.Tests.Models
 {
     [TestFixture]
-    public class MonthlyElectricityUsageTests
+    public class MonthlyKwhUsageTests
     {
-        private MonthlyElectrictyUsage _subject;
+        private MonthlyKwhUsage _subject;
 
         [Test]
         [TestCase(100, .1, .001)]
@@ -21,7 +21,7 @@ namespace KritnerWebsite.Business.Tests.Models
             double expectedCostPerKiloWattHour
         )
         {
-            _subject = new MonthlyElectrictyUsage(new DateTime(), kiloWattHours, cost);
+            _subject = new MonthlyKwhUsage(new DateTime(), kiloWattHours, cost);
             Assert.AreEqual(expectedCostPerKiloWattHour, _subject.CostPerKiloWattHour);
         }
     }
