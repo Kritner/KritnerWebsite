@@ -16,6 +16,7 @@ export class SolarProjectionComponent {
 }
 
 interface SolarProjection {
+  solarEstimate: YearlyElectricityUsage;
   futureProjection: ProjectionMap;
 }
 

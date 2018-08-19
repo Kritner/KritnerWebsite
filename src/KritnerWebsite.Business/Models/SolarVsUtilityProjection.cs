@@ -8,14 +8,14 @@ namespace KritnerWebsite.Business.Models
     {
         public SolarVsUtilityProjection(
             IYearlyKwhUsage solarEstimate, 
-            Dictionary<int, IYearlyKwhUsage> bgeFutureProjection
+            Dictionary<int, IYearlyKwhUsage> futureProjection
         )
         {
             SolarEstimate = solarEstimate;
-            BgeFutureProjection = bgeFutureProjection;
+            FutureProjection = futureProjection;
         }
 
         public IYearlyKwhUsage SolarEstimate { get; }
-        public Dictionary<int, IYearlyKwhUsage> BgeFutureProjection { get; }
+        public Dictionary<int, IYearlyKwhUsage> FutureProjection { get; }
     }
 }

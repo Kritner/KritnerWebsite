@@ -27,7 +27,7 @@ namespace KritnerWebsite.Business.Tests.Services
                 new ProjectionParameters(GetSampleData(), yearsToProject, PERCENT_INCREASE_PER_YEAR)
             );
 
-            Assert.AreEqual(yearsToProject, result.BgeFutureProjection.Count, nameof(yearsToProject));
+            Assert.AreEqual(yearsToProject, result.FutureProjection.Count, nameof(yearsToProject));
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace KritnerWebsite.Business.Tests.Services
             {
                 Assert.AreEqual(
                     FormulaHelpers.CompoundInterest(ORIGINAL_COST, PERCENT_INCREASE_PER_YEAR, 1, i), 
-                    result.BgeFutureProjection[i].TotalCost, 
+                    result.FutureProjection[i].TotalCost, 
                     .01,
                     $"{i} index Cost");
             }
