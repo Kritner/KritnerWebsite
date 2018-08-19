@@ -16,8 +16,7 @@ export class SolarProjectionComponent {
 }
 
 interface SolarProjection {
-  solarEstimate: YearlyElectricityUsage;
-  bgeFutureProjection: ProjectionMap;
+  futureProjection: ProjectionMap;
 }
 
 interface ProjectionMap {

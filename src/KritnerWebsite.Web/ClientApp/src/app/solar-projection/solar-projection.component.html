@@ -5,6 +5,7 @@
 <table class='table' *ngIf="solarProjection">
   <thead>
     <tr>
+      <th>Year</th>
       <th>Total Cost</th>
       <th>Total Kw/h</th>
       <th>Avg. Cost/month</th>
@@ -12,11 +13,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>{{ solarProjection.solarEstimate.totalCost }}</td>
-      <td>{{ solarProjection.solarEstimate.totalKiloWattHours }}</td>
-      <td>{{ solarProjection.solarEstimate.averageCostPerMonth }}</td>
-      <td>{{ solarProjection.solarEstimate.averageCostKiloWattHour }}</td>
+    <tr *ngFor="let projection of solarProjection.futureProjection">
+      <td>{{ projection.year }}</td>
+      <td>{{ projection.solarProjection.totalCost }}</td>
+      <td>{{ projection.solarProjection.totalKiloWattHours }}</td>
+      <td>{{ projection.solarProjection.averageCostPerMonth }}</td>
+      <td>{{ projection.solarProjection.averageCostKiloWattHour }}</td>
     </tr>
   </tbody>
 </table>
