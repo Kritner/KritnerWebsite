@@ -2,23 +2,36 @@
 
 <p *ngIf="!solarProjection"><em>Loading...</em></p>
 
-<table class='table' *ngIf="solarProjection">
-  <thead>
-    <tr>
-      <th>Year</th>
-      <th>Total Cost</th>
-      <th>Total Kw/h</th>
-      <th>Avg. Cost/month (Utility)</th>
-      <th>Avg. Cost/Kw/h (Utility)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let projection of solarProjection.futureProjection">
-      <td>{{ projection.purchaseYear }}</td>
-      <td>{{ projection.totalCost }}</td>
-      <td>{{ projection.totalKiloWattHours }}</td>
-      <td>{{ projection.averageCostPerMonth }}</td>
-      <td>{{ projection.averageCostKiloWattHour }}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="solarProjection">
+
+  <h4>Solar Estimate (Guaranteed for 90% of 17k Kw/year Production</h4>
+
+  <ul>
+    <li>Total Cost/year: {{ solarProjection.solarEstimate.totalCost | number:'1.2' }}</li>
+    <li>Total Kw/h/year: {{ solarProjection.solarEstimate.totalKiloWattHours | number }}</li>
+    <li>Avg Cost/month: {{ solarProjection.solarEstimate.averageCostPerMonth | number:'1.2' }}</li>
+    <li>Avg Cost/kw/h {{ solarProjection.solarEstimate.averageCostKiloWattHour | number:'1.2-5' }}</li>
+  </ul>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Total Cost</th>
+        <th>Total Kw/h</th>
+        <th>Avg. Cost/month (Utility)</th>
+        <th>Avg. Cost/Kw/h (Utility)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let projection of solarProjection.futureProjection">
+        <td>{{ projection.purchaseYear }}</td>
+        <td>{{ projection.totalCost | number:'1.2' }}</td>
+        <td>{{ projection.totalKiloWattHours | number }}</td>
+        <td>{{ projection.averageCostPerMonth | number:'1.2' }}</td>
+        <td>{{ projection.averageCostKiloWattHour | number:'1.2-5' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
