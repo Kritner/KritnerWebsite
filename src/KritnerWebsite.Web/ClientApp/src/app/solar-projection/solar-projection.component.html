@@ -8,17 +8,17 @@
       <th>Year</th>
       <th>Total Cost</th>
       <th>Total Kw/h</th>
-      <th>Avg. Cost/month</th>
-      <th>Avg. Cost/Kw/h</th>
+      <th>Avg. Cost/month (Utility)</th>
+      <th>Avg. Cost/Kw/h (Utility)</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let projection of solarProjection.futureProjection">
-      <td>{{ projection.year }}</td>
-      <td>{{ projection.solarProjection.totalCost }}</td>
-      <td>{{ projection.solarProjection.totalKiloWattHours }}</td>
-      <td>{{ projection.solarProjection.averageCostPerMonth }}</td>
-      <td>{{ projection.solarProjection.averageCostKiloWattHour }}</td>
+      <td>{{ projection.purchaseYear }}</td>
+      <td>{{ projection.totalCost }}</td>
+      <td>{{ projection.totalKiloWattHours }}</td>
+      <td>{{ projection.averageCostPerMonth }}</td>
+      <td>{{ projection.averageCostKiloWattHour }}</td>
     </tr>
   </tbody>
 </table>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KritnerWebsite.Business.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,7 +9,7 @@ namespace KritnerWebsite.Business.Models
     {
         public SolarVsUtilityProjection(
             IYearlyKwhUsage solarEstimate, 
-            Dictionary<int, IYearlyKwhUsage> futureProjection
+            List<IYearlyKwhUsageCompare> futureProjection
         )
         {
             SolarEstimate = solarEstimate;
@@ -16,6 +17,6 @@ namespace KritnerWebsite.Business.Models
         }
 
         public IYearlyKwhUsage SolarEstimate { get; }
-        public Dictionary<int, IYearlyKwhUsage> FutureProjection { get; }
+        public List<IYearlyKwhUsageCompare> FutureProjection { get; }
     }
 }

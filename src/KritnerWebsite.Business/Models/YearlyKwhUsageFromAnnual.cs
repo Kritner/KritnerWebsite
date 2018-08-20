@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KritnerWebsite.Business.Interfaces;
+using System;
 using System.Text;
 
 namespace KritnerWebsite.Business.Models

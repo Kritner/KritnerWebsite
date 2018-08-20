@@ -17,15 +17,19 @@ export class SolarProjectionComponent {
 
 interface SolarProjection {
   solarEstimate: YearlyElectricityUsage;
-  futureProjection: ProjectionMap;
-}
-
-interface ProjectionMap {
-  year: number;
-  solarProjection: YearlyElectricityUsage;
+  futureProjection: FutureProjection[];
 }
 
 interface YearlyElectricityUsage {
+  averageCostKiloWattHour: number;
+  averageCostPerMonth: number;
+  totalCost: number;
+  totalKiloWattHours: number;
+}
+
+interface FutureProjection {
+  solarEstimate: YearlyElectricityUsage;
+  purchaseYear: number;
   averageCostKiloWattHour: number;
   averageCostPerMonth: number;
   totalCost: number;

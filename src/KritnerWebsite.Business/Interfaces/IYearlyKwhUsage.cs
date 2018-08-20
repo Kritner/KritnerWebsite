@@ -1,4 +1,4 @@
-﻿namespace KritnerWebsite.Business.Models
+﻿namespace KritnerWebsite.Business.Interfaces
 {
     public interface IYearlyKwhUsage
     {

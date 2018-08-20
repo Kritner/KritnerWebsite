@@ -28,7 +28,13 @@ namespace KritnerWebsite.Business.Helpers
             return new YearlyKwhUsageFromMonthly(monthlyCollection2017);
         }
 
-        public static YearlyKwhUsageFromMonthly GetUsageWithPanelsMortgage()
+        public static YearlyKwhUsageFromAnnual GetUsageUtility2017FromAnnual()
+        {
+            var monthly = GetUsageUtility2017();
+            return new YearlyKwhUsageFromAnnual(monthly.TotalCost, monthly.TotalKiloWattHours);
+        }
+
+        public static YearlyKwhUsageFromMonthly GetUsageUtility2017()
         {
             List<MonthlyKwhUsage> panelExampleFrom2017Usage = new List<MonthlyKwhUsage>()
             {
@@ -47,6 +53,12 @@ namespace KritnerWebsite.Business.Helpers
             };
 
             return new YearlyKwhUsageFromMonthly(panelExampleFrom2017Usage);
+        }
+
+        public static YearlyKwhUsageFromAnnual GetUsageWithPanelsMortgageAnnual()
+        {
+            var monthly = GetUsageUtility2017();
+            return new YearlyKwhUsageFromAnnual(monthly.TotalCost, monthly.TotalKiloWattHours);
         }
     }
 }

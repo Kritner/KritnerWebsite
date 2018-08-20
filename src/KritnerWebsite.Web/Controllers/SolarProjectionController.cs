@@ -24,9 +24,9 @@ namespace KritnerWebsite.Web.Controllers
         public SolarVsUtilityProjection GetProjection()
         {
             return _service.CalculateFutureProjection(
-                ElectricityDataHelper.GetUsageWithPanelsMortgage(),
+                ElectricityDataHelper.GetUsageUtility2017FromAnnual(),
                 new ProjectionParameters(
-                    ElectricityDataHelper.GetUsageBge2017(), 25, .3
+                    ElectricityDataHelper.GetUsageUtility2017FromAnnual(), 25, .03
                 )
             );
         }

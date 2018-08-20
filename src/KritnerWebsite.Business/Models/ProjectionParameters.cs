@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KritnerWebsite.Business.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,17 +8,17 @@ namespace KritnerWebsite.Business.Models
     public class ProjectionParameters
     {
         public ProjectionParameters(
-            YearlyKwhUsageFromMonthly originalYearlyUsage,
+            IYearlyKwhUsage utilityYear,
             int yearsToProject,
             double percentIncreasePerYear
         )
         {
-            OriginalYearlyUsage = originalYearlyUsage;
+            UtilityYear = utilityYear;
             YearsToProject = yearsToProject;
             PercentIncreasePerYear = percentIncreasePerYear;
         }
 
-        public IYearlyKwhUsage OriginalYearlyUsage { get; }
+        public IYearlyKwhUsage UtilityYear { get; }
         public int YearsToProject { get; }
         public double PercentIncreasePerYear { get; }
     }

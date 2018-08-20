@@ -14,15 +14,17 @@ namespace KritnerWebsite.Business.Services
             ProjectionParameters projectionParameters
         )
         {
-            var projection = new Dictionary<int, IYearlyKwhUsage>();
-            var original = projectionParameters.OriginalYearlyUsage;
+            var projection = new List<IYearlyKwhUsageCompare>();
+            var utilityEstimate = projectionParameters.UtilityYear;
 
             // Each year to project
             for (int i = 0; i < projectionParameters.YearsToProject; i++)
             {
-                projection.Add(i, new YearlyKwhUsageFromAnnual(
-                    FormulaHelpers.CompoundInterest(original.TotalCost, projectionParameters.PercentIncreasePerYear, 1, i), 
-                    original.TotalKiloWattHours
+                projection.Add(new YearlyKwhUsageCompare(
+                    FormulaHelpers.CompoundInterest(utilityEstimate.TotalCost, projectionParameters.PercentIncreasePerYear, 1, i),
+                    utilityEstimate.TotalKiloWattHours,
+                    i,
+                    solarEstimate
                 ));
             }
 

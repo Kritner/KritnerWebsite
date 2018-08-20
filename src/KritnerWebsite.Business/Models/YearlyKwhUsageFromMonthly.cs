@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using KritnerWebsite.Business.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace KritnerWebsite.Business.Models
