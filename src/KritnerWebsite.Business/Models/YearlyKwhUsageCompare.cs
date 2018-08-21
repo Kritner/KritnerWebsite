@@ -17,10 +17,22 @@ namespace KritnerWebsite.Business.Models
         {
             PurchaseYear = purchaseYear;
             SolarProjection = solarProjection;
+
+            CostSolar100Percent = CalculateTotalCost(1);
+            CostSolar90Percent = CalculateTotalCost(0.9);
+            CostSolar80Percent = CalculateTotalCost(0.8);
         }
 
         public int PurchaseYear { get; }
+        public double CostSolar100Percent { get; }
+        public double CostSolar90Percent { get; }
+        public double CostSolar80Percent { get; }
 
         public IYearlyKwhUsage SolarProjection { get; }
-    }
+        
+        public double CalculateTotalCost(double solarGenerationPercentage)
+        {
+            return TotalCost * (1 - solarGenerationPercentage) + SolarProjection.TotalCost;
+        }
+}
 }

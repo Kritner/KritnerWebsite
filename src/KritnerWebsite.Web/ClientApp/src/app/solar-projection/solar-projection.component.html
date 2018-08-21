@@ -17,9 +17,12 @@
     <thead>
       <tr>
         <th>Year</th>
-        <th>Total Cost</th>
+        <th>Total Cost Utility</th>
         <th>Avg. Cost/month (Utility)</th>
         <th>Avg. Cost/Kw/h (Utility)</th>
+        <th>Cost/year 100% generation</th>
+        <th>Cost/year 90% generation</th>
+        <th>Cost/year 80% generation</th>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +31,9 @@
         <td>{{ projection.totalCost | number:'1.2' }}</td>
         <td>{{ projection.averageCostPerMonth | number:'1.2' }}</td>
         <td>{{ projection.averageCostKiloWattHour | number:'1.2-5' }}</td>
+        <td>{{ projection.costSolar100Percent | number:'1.2' }}</td>
+        <td>{{ projection.costSolar90Percent | number:'1.2' }}</td>
+        <td>{{ projection.costSolar80Percent | number:'1.2' }}</td>
       </tr>
     </tbody>
   </table>

@@ -7,7 +7,7 @@ namespace KritnerWebsite.Business.Helpers
 {
     public static class ElectricityDataHelper
     {
-        public static YearlyKwhUsageFromMonthly GetUsageBge2017()
+        public static YearlyKwhUsageFromMonthly GetUsageUtility2017()
         {
             List<MonthlyKwhUsage> monthlyCollection2017 = new List<MonthlyKwhUsage>()
             {
@@ -34,7 +34,7 @@ namespace KritnerWebsite.Business.Helpers
             return new YearlyKwhUsageFromAnnual(monthly.TotalCost, monthly.TotalKiloWattHours);
         }
 
-        public static YearlyKwhUsageFromMonthly GetUsageUtility2017()
+        public static YearlyKwhUsageFromMonthly GetUsageWithPanelsMortgage()
         {
             List<MonthlyKwhUsage> panelExampleFrom2017Usage = new List<MonthlyKwhUsage>()
             {
@@ -57,7 +57,7 @@ namespace KritnerWebsite.Business.Helpers
 
         public static YearlyKwhUsageFromAnnual GetUsageWithPanelsMortgageAnnual()
         {
-            var monthly = GetUsageUtility2017();
+            var monthly = GetUsageWithPanelsMortgage();
             return new YearlyKwhUsageFromAnnual(monthly.TotalCost, monthly.TotalKiloWattHours);
         }
     }

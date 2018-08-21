@@ -34,4 +34,8 @@ interface FutureProjection {
   averageCostPerMonth: number;
   totalCost: number;
   totalKiloWattHours: number;
+
+  costSolar100Percent: number;
+  costSolar90Percent: number;
+  costSolar80Percent: number;
 }
