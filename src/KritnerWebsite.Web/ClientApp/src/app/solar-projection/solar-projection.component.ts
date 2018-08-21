@@ -36,6 +36,11 @@ interface FutureProjection {
   totalKiloWattHours: number;
 
   costSolar100Percent: number;
+  totalSavings100Percent: number;
+
   costSolar90Percent: number;
+  totalSavings90Percent: number;
+
   costSolar80Percent: number;
+  totalSavings80Percent: number;
 }
