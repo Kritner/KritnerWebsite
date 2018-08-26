@@ -3,7 +3,7 @@ services:
   
   kritner-website-web:
     build:
-      context: ../src/KritnerWebsite.Web
+      context: ../
       dockerfile: Dockerfile
     image: ${DOCKER_REGISTRY}/kritnerwebsite
     expose:
