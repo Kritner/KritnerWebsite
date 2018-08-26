@@ -9,14 +9,17 @@ namespace KritnerWebsite.Business.Models
     {
         public SolarVsUtilityProjection(
             IYearlyKwhUsage solarEstimate, 
-            List<IYearlyKwhUsageCompare> futureProjection
+            List<IYearlyKwhUsageCompare> futureProjection,
+            int financeYears
         )
         {
             SolarEstimate = solarEstimate;
             FutureProjection = futureProjection;
+            FinanceYears = financeYears;
         }
 
         public IYearlyKwhUsage SolarEstimate { get; }
         public List<IYearlyKwhUsageCompare> FutureProjection { get; }
+        public int FinanceYears { get; }
     }
 }

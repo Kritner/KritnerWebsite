@@ -17,6 +17,10 @@ namespace KritnerWebsite.Business.Services
             var projection = new List<IYearlyKwhUsageCompare>();
             var utilityEstimate = projectionParameters.UtilityYear;
 
+            var paidOffSolarEstimate = new YearlyKwhUsageFromAnnual(
+                0, solarEstimate.TotalKiloWattHours
+            );
+
             // Each year to project
             for (int i = 0; i < projectionParameters.YearsToProject; i++)
             {
@@ -24,11 +28,13 @@ namespace KritnerWebsite.Business.Services
                     FormulaHelpers.CompoundInterest(utilityEstimate.TotalCost, projectionParameters.PercentIncreasePerYear, 1, i),
                     utilityEstimate.TotalKiloWattHours,
                     i,
-                    solarEstimate
+                    // After financeYears, solar panels are no longer paid for
+                    i < projectionParameters.FinanceYears ? 
+                        solarEstimate : paidOffSolarEstimate
                 ));
             }
 
-            return new SolarVsUtilityProjection(solarEstimate, projection);
+            return new SolarVsUtilityProjection(solarEstimate, projection, projectionParameters.FinanceYears);
         }
     }
 }

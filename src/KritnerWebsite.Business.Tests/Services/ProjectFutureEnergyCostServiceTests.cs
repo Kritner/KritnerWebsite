@@ -24,7 +24,7 @@ namespace KritnerWebsite.Business.Tests.Services
         {
             var result = _subject.CalculateFutureProjection(
                 GetSampleData(), 
-                new ProjectionParameters(GetSampleData(), yearsToProject, PERCENT_INCREASE_PER_YEAR)
+                new ProjectionParameters(GetSampleData(), yearsToProject, yearsToProject, PERCENT_INCREASE_PER_YEAR)
             );
 
             Assert.AreEqual(yearsToProject, result.FutureProjection.Count, nameof(yearsToProject));
@@ -36,7 +36,7 @@ namespace KritnerWebsite.Business.Tests.Services
         {
             var result = _subject.CalculateFutureProjection(
                 GetSampleData(),
-                new ProjectionParameters(GetSampleData(), yearsToProject, PERCENT_INCREASE_PER_YEAR)
+                new ProjectionParameters(GetSampleData(), yearsToProject, yearsToProject, PERCENT_INCREASE_PER_YEAR)
             );
 
             var sample = GetSampleData();
@@ -50,12 +50,45 @@ namespace KritnerWebsite.Business.Tests.Services
             }
         }
 
-        private static YearlyKwhUsageFromMonthly GetSampleData()
+        [Test]
+        [TestCase(10, 5)]
+        [TestCase(10, 10)]
+        public void ShouldStopSolarPanelCostAfterFinanceYears(int yearsToProject, int yearsToFinance)
         {
-            return new YearlyKwhUsageFromMonthly(new List<MonthlyKwhUsage>()
+            var result = _subject.CalculateFutureProjection(
+                GetSampleData(),
+                new ProjectionParameters(GetSampleData(), yearsToProject, yearsToFinance, PERCENT_INCREASE_PER_YEAR)
+            );
+
+            for (int i = 0; i < yearsToProject; i++)
             {
-                new MonthlyKwhUsage(new DateTime(), ORIGINAL_KWH, ORIGINAL_COST)
-            });
+                if (i < yearsToFinance)
+                {
+                    Assert.IsTrue(
+                        result
+                            .FutureProjection[i]
+                            .SolarProjection
+                            .TotalCost > 0,
+                        $"failed on {nameof(i)} {i}"
+                    );
+                }
+                else
+                {
+                    Assert.IsTrue(
+                        result
+                            .FutureProjection[i]
+                            .SolarProjection
+                            .TotalCost == 0,
+                        $"failed on {nameof(i)} {i}"
+                    );
+
+                }
+            }
+        }
+
+        private static YearlyKwhUsageFromAnnual GetSampleData()
+        {
+            return new YearlyKwhUsageFromAnnual(ORIGINAL_COST, ORIGINAL_KWH);
         }
     }
 }

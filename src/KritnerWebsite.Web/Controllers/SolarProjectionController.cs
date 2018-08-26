@@ -26,7 +26,10 @@ namespace KritnerWebsite.Web.Controllers
             return _service.CalculateFutureProjection(
                 ElectricityDataHelper.GetUsageWithPanelsMortgageAnnual(),
                 new ProjectionParameters(
-                    ElectricityDataHelper.GetUsageUtility2017FromAnnual(), 25, .03
+                    ElectricityDataHelper.GetUsageUtility2017FromAnnual(), 
+                    25, 
+                    20,
+                    .03
                 )
             );
         }
