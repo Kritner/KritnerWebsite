@@ -1,0 +1,45 @@
+<h1>Solar Projection</h1>
+
+<p *ngIf="!solarProjection"><em>Loading...</em></p>
+
+<div *ngIf="solarProjection">
+
+  <h4>Solar Estimate (Guaranteed for 90% of 17k Kw/year Production</h4>
+
+  <ul>
+    <li>Total Cost/year: {{ solarProjection.solarEstimate.totalCost | number:'1.2' }}</li>
+    <li>Total Kw/h/year: {{ solarProjection.solarEstimate.totalKiloWattHours | number }}</li>
+    <li>Avg Cost/month: {{ solarProjection.solarEstimate.averageCostPerMonth | number:'1.2' }}</li>
+    <li>Avg Cost/kw/h {{ solarProjection.solarEstimate.averageCostKiloWattHour | number:'1.2-5' }}</li>
+  </ul>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Total Cost Utility</th>
+        <th>Avg. Cost/month (Utility)</th>
+        <th>Cost/year 100% gen.</th>
+        <th>Savings/year 100% gen.</th>
+        <th>Cost/year 90% gen.</th>
+        <th>Savings/year 90% gen.</th>
+        <th>Cost/year 80% gen.</th>
+        <th>Savings/year 80% gen.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let projection of solarProjection.futureProjection">
+        <td>{{ projection.purchaseYear }}</td>
+        <td>{{ projection.totalCost | number:'1.2' }}</td>
+        <td>{{ projection.averageCostPerMonth | number:'1.2' }}</td>
+        <td>{{ projection.costSolar100Percent | number:'1.2' }}</td>
+        <td>{{ projection.totalSavings100Percent | number:'1.2' }}</td>
+        <td>{{ projection.costSolar90Percent | number:'1.2' }}</td>
+        <td>{{ projection.totalSavings90Percent | number:'1.2' }}</td>
+        <td>{{ projection.costSolar80Percent | number:'1.2' }}</td>
+        <td>{{ projection.totalSavings80Percent | number:'1.2' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
