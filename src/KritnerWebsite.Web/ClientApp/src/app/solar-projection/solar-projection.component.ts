@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-solar-projection',
-  templateUrl: './solar-projection.component.html'
+  templateUrl: './solar-projection.component.html',
+  styleUrls: ['./solar-projection.component.css']
 })
 export class SolarProjectionComponent {
   public solarProjection: SolarProjection;
@@ -12,6 +13,15 @@ export class SolarProjectionComponent {
     http.get<SolarProjection>(baseUrl + 'api/SolarProjection/GetProjection').subscribe(result => {
       this.solarProjection = result;
     }, error => console.error(error));
+  }
+
+  public inTheGreen(value: number): boolean{
+    if (value >= 0)
+    {
+      return true;
+    }
+
+    return false;
   }
 }
 
@@ -38,7 +48,7 @@ interface FutureProjection {
 
   costSolar100Percent: number;
   totalSavings100Percent: number;
-
+  
   costSolar90Percent: number;
   totalSavings90Percent: number;
 

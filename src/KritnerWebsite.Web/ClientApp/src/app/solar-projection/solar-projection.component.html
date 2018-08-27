@@ -34,11 +34,20 @@
         <td>{{ projection.totalCost | currency }}</td>
         <td>{{ projection.averageCostPerMonth | currency }}</td>
         <td>{{ projection.costSolar100Percent | currency }}</td>
-        <td>{{ projection.totalSavings100Percent | currency }}</td>
+        <td [ngClass]="{
+          positive: inTheGreen(projection.totalSavings100Percent),
+          negative: !inTheGreen(projection.totalSavings100Percent)
+        }">{{ projection.totalSavings100Percent | currency }}</td>
         <td>{{ projection.costSolar90Percent | currency }}</td>
-        <td>{{ projection.totalSavings90Percent | currency }}</td>
+        <td [ngClass]="{
+          positive: inTheGreen(projection.totalSavings90Percent),
+          negative: !inTheGreen(projection.totalSavings90Percent)
+        }">{{ projection.totalSavings90Percent | currency }}</td>
         <td>{{ projection.costSolar80Percent | currency }}</td>
-        <td>{{ projection.totalSavings80Percent | currency }}</td>
+        <td [ngClass]="{
+          positive: inTheGreen(projection.totalSavings80Percent),
+          negative: !inTheGreen(projection.totalSavings80Percent)
+        }">{{ projection.totalSavings80Percent | currency }}</td>
       </tr>
     </tbody>
   </table>
