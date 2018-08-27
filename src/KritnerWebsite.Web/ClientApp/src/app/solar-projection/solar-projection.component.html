@@ -7,10 +7,10 @@
   <h4>Solar Estimate (Guaranteed for 90% of 17k Kw/year Production</h4>
 
   <ul>
-    <li>Total Cost/year: {{ solarProjection.solarEstimate.totalCost | number:'1.2' }}</li>
+    <li>Total Cost/year: {{ solarProjection.solarEstimate.totalCost | currency }}</li>
     <li>Total Kw/h/year: {{ solarProjection.solarEstimate.totalKiloWattHours | number }}</li>
-    <li>Avg Cost/month: {{ solarProjection.solarEstimate.averageCostPerMonth | number:'1.2' }}</li>
-    <li>Avg Cost/kw/h {{ solarProjection.solarEstimate.averageCostKiloWattHour | number:'1.2-5' }}</li>
+    <li>Avg Cost/month: {{ solarProjection.solarEstimate.averageCostPerMonth | currency }}</li>
+    <li>Avg Cost/kw/h {{ solarProjection.solarEstimate.averageCostKiloWattHour | currency }}</li>
     <li>Total Years Financed: {{ solarProjection.financeYears }} </li>
   </ul>
 
@@ -31,14 +31,14 @@
     <tbody>
       <tr *ngFor="let projection of solarProjection.futureProjection">
         <td>{{ projection.purchaseYear }}</td>
-        <td>{{ projection.totalCost | number:'1.2' }}</td>
-        <td>{{ projection.averageCostPerMonth | number:'1.2' }}</td>
-        <td>{{ projection.costSolar100Percent | number:'1.2' }}</td>
-        <td>{{ projection.totalSavings100Percent | number:'1.2' }}</td>
-        <td>{{ projection.costSolar90Percent | number:'1.2' }}</td>
-        <td>{{ projection.totalSavings90Percent | number:'1.2' }}</td>
-        <td>{{ projection.costSolar80Percent | number:'1.2' }}</td>
-        <td>{{ projection.totalSavings80Percent | number:'1.2' }}</td>
+        <td>{{ projection.totalCost | currency }}</td>
+        <td>{{ projection.averageCostPerMonth | currency }}</td>
+        <td>{{ projection.costSolar100Percent | currency }}</td>
+        <td>{{ projection.totalSavings100Percent | currency }}</td>
+        <td>{{ projection.costSolar90Percent | currency }}</td>
+        <td>{{ projection.totalSavings90Percent | currency }}</td>
+        <td>{{ projection.costSolar80Percent | currency }}</td>
+        <td>{{ projection.totalSavings80Percent | currency }}</td>
       </tr>
     </tbody>
   </table>
