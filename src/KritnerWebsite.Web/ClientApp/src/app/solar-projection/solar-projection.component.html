@@ -30,7 +30,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let projection of solarProjection.futureProjection">
-        <td>{{ projection.purchaseYear }}</td>
+        <td>{{ projection.purchaseYear | indexOffset }}</td>
         <td>{{ projection.totalCost | currency }}</td>
         <td>{{ projection.averageCostPerMonth | currency }}</td>
         <td>{{ projection.costSolar100Percent | currency }}</td>
