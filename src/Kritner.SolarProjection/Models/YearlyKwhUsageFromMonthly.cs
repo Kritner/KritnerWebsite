@@ -1,8 +1,8 @@
-﻿using KritnerWebsite.Business.Interfaces;
+﻿using Kritner.SolarProjection.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace KritnerWebsite.Business.Models
+namespace Kritner.SolarProjection.Models
 {
     public class YearlyKwhUsageFromMonthly : IYearlyKwhUsage
     {

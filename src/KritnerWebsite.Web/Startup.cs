@@ -1,5 +1,5 @@
-using KritnerWebsite.Business.Interfaces;
-using KritnerWebsite.Business.Services;
+using Kritner.SolarProjection.Interfaces;
+using Kritner.SolarProjection.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;

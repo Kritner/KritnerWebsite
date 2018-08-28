@@ -1,9 +1,9 @@
-﻿using KritnerWebsite.Business.Interfaces;
+﻿using Kritner.SolarProjection.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace KritnerWebsite.Business.Models
+namespace Kritner.SolarProjection.Models
 {
     public class SolarVsUtilityProjection
     {

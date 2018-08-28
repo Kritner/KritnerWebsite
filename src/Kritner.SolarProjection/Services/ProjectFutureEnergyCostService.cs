@@ -1,11 +1,11 @@
-﻿using KritnerWebsite.Business.Helpers;
-using KritnerWebsite.Business.Interfaces;
-using KritnerWebsite.Business.Models;
+﻿using Kritner.SolarProjection.Helpers;
+using Kritner.SolarProjection.Interfaces;
+using Kritner.SolarProjection.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace KritnerWebsite.Business.Services
+namespace Kritner.SolarProjection.Services
 {
     public class ProjectFutureEnergyCostService : IProjectFutureEnergyCostService
     {

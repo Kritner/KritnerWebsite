@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace KritnerWebsite.Business.Models
+namespace Kritner.SolarProjection.Models
 {
     public class MonthlyKwhUsage
     {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using KritnerWebsite.Business.Helpers;
-using KritnerWebsite.Business.Interfaces;
-using KritnerWebsite.Business.Models;
+using Kritner.SolarProjection.Helpers;
+using Kritner.SolarProjection.Interfaces;
+using Kritner.SolarProjection.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KritnerWebsite.Web.Controllers

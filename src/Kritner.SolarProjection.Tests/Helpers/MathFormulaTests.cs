@@ -1,10 +1,10 @@
-﻿using KritnerWebsite.Business.Helpers;
+﻿using Kritner.SolarProjection.Helpers;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace KritnerWebsite.Business.Tests.Helpers
+namespace Kritner.SolarProjection.Tests.Helpers
 {
     [TestFixture]
     public class MathFormulaTests

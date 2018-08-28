@@ -1,6 +1,6 @@
-﻿using KritnerWebsite.Business.Models;
+﻿using Kritner.SolarProjection.Models;
 
-namespace KritnerWebsite.Business.Interfaces
+namespace Kritner.SolarProjection.Interfaces
 {
     public interface IProjectFutureEnergyCostService
     {

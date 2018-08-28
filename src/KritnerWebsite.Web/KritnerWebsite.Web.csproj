@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KritnerWebsite.Business\KritnerWebsite.Business.csproj" />
+    <ProjectReference Include="..\Kritner.SolarProjection\Kritner.SolarProjection.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

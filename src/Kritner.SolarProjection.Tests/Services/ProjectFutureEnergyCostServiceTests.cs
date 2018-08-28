@@ -1,12 +1,12 @@
-﻿using KritnerWebsite.Business.Helpers;
-using KritnerWebsite.Business.Models;
-using KritnerWebsite.Business.Services;
+﻿using Kritner.SolarProjection.Helpers;
+using Kritner.SolarProjection.Models;
+using Kritner.SolarProjection.Services;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace KritnerWebsite.Business.Tests.Services
+namespace Kritner.SolarProjection.Tests.Services
 {
     [TestFixture]
     public class ProjectFutureEnergyCostServiceTests

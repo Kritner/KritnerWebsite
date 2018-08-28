@@ -1,4 +1,4 @@
-﻿namespace KritnerWebsite.Business.Interfaces
+﻿namespace Kritner.SolarProjection.Interfaces
 {
     public interface IYearlyKwhUsage
     {

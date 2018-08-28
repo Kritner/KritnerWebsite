@@ -1,10 +1,10 @@
-﻿using KritnerWebsite.Business.Models;
+﻿using Kritner.SolarProjection.Models;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace KritnerWebsite.Business.Tests.Models
+namespace Kritner.SolarProjection.Tests.Models
 {
     [TestFixture]
     public class MonthlyKwhUsageTests

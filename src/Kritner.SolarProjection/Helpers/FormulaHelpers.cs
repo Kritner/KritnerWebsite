@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace KritnerWebsite.Business.Helpers
+namespace Kritner.SolarProjection.Helpers
 {
     public static class FormulaHelpers
     {
