@@ -7,6 +7,7 @@ services:
       - "5000"
     networks:
       - frontend
+    restart: always
     container_name: kritnerwebsite_web
   kritner-website-nginx:
     image: nginx:latest
@@ -18,6 +19,7 @@ services:
       - kritner-website-web
     networks:
       - frontend
+    restart: always
     container_name: kritnerwebsite_nginx
 
 networks:
