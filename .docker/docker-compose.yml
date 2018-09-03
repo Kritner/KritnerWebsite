@@ -4,7 +4,7 @@ services:
   kritner-website-web:
     image: ${DOCKER_REGISTRY}/kritnerwebsite
     ports:
-      - 5000:5000
+      - 80:5000
     networks:
       - frontend
     environment:
