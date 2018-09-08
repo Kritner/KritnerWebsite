@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { HttpClientModule, HttpHeaders, HttpParams } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { SolarProjectionFormModel } from './solar-projection-form-model';
 
@@ -8,8 +9,10 @@ import { SolarProjectionFormModel } from './solar-projection-form-model';
   styleUrls: ['./solar-projection.component.css']
 })
 export class SolarProjectionComponent implements OnInit {
+  private http: HttpClient;
+  private baseUrl: string;
+
   isExpandedForm: boolean = true;
-  submitted : boolean = false;
   solarProjection: SolarProjection;
   model: SolarProjectionFormModel =
     new SolarProjectionFormModel(
@@ -17,22 +20,47 @@ export class SolarProjectionComponent implements OnInit {
       17000,
       180,
       20,
-      2400,
+      2240,
       .03
     );
-  
+
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<SolarProjection>(baseUrl + 'api/SolarProjection/GetProjection').subscribe(result => {
-      this.solarProjection = result;
-    }, error => console.error(error));
+    this.http = http;
+    this.baseUrl = baseUrl;
   }
 
   ngOnInit() {
+    this.getProjection();
   }
 
-  inTheGreen(value: number): boolean{
-    if (value >= 0)
-    {
+  getProjection() {
+    let headers = new HttpHeaders({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+      });
+
+    let params = new HttpParams()
+      .set("param", JSON.stringify(this.model));
+
+    this.http.get<SolarProjection>(
+      this.baseUrl + 'api/SolarProjection',
+      {
+          headers: headers,
+          params: params
+      }
+    )
+      .subscribe(
+        result => {
+          this.solarProjection = result;
+        },
+        error => {
+          console.error(error)
+        }
+      );
+  }
+
+  inTheGreen(value: number): boolean {
+    if (value >= 0) {
       return true;
     }
 
@@ -45,7 +73,7 @@ export class SolarProjectionComponent implements OnInit {
 
   onSubmit() {
     this.toggleFormInput();
-    this.submitted = true;
+    this.getProjection();
   }
 }
 
@@ -72,7 +100,7 @@ interface FutureProjection {
 
   costSolar100Percent: number;
   totalSavings100Percent: number;
-  
+
   costSolar90Percent: number;
   totalSavings90Percent: number;
 
