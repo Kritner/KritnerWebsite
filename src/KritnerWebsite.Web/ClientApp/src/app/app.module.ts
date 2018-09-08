@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+
 import { SolarProjectionComponent } from './solar-projection/solar-projection.component';
 
 @NgModule({
@@ -35,7 +36,7 @@ import { SolarProjectionComponent } from './solar-projection/solar-projection.co
       { path: 'about', component: AboutComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'solar-projection', component: SolarProjectionComponent },
+      { path: 'solar-projection', component: SolarProjectionComponent }
     ])
   ],
   providers: [],
