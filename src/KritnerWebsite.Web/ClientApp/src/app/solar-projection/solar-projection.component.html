@@ -1,57 +1,112 @@
 <h1>Solar Projection</h1>
 
-<app-solar-projection-form></app-solar-projection-form>
+<div class="container">
+  <!-- form inputs solar projection-->
+  <div>
+    <form *ngIf="!isExpandedForm" (ngSubmit)="onSubmit()" #projectionForm="ngForm">
+      <div class="form-group">
+        <label for="yearsToProject">Years to project</label>
+        <input type="number" class="form-control" id="yearsToProject" name="yearsToProject" required [(ngModel)]="model.yearsToProject"
+        />
+      </div>
 
-<p *ngIf="!solarProjection"><em>Loading...</em></p>
+      <div class="form-group">
+        <label for="solarArrayKwhYear">Utility/Solar Array kw/year</label>
+        <input type="number" class="form-control" id="solarArrayKwhYear" name="solarArrayKwhYear" required [(ngModel)]="model.solarArrayKwhYear"
+        />
+      </div>
 
-<div *ngIf="solarProjection">
+      <div class="form-group">
+        <label for="solarCostPerMonth">Solar Array cost/month</label>
+        <input type="number" class="form-control" id="solarCostPerMonth" name="solarCostPerMonth" required [(ngModel)]="model.solarCostPerMonth"
+        />
+      </div>
 
-  <h4>Solar Estimate (Guaranteed for 90% of total Kw/year Production)</h4>
+      <div class="form-group">
+        <label for="solarFinanceYears">Solar Finance Years</label>
+        <input type="number" class="form-control" id="solarFinanceYears" name="solarFinanceYears" required [(ngModel)]="model.solarFinanceYears"
+        />
+      </div>
 
-  <ul>
-    <li>Total Cost/year: {{ solarProjection.solarEstimate.totalCost | currency }}</li>
-    <li>Total Kw/h/year: {{ solarProjection.solarEstimate.totalKiloWattHours | number }}</li>
-    <li>Avg Cost/month: {{ solarProjection.solarEstimate.averageCostPerMonth | currency }}</li>
-    <li>Avg Cost/kw/h {{ solarProjection.solarEstimate.averageCostKiloWattHour | currency }}</li>
-    <li>Total Years Financed: {{ solarProjection.financeYears }} </li>
-  </ul>
+      <div class="form-group">
+        <label for="utilityCostFullYear">Utility Cost Full Year</label>
+        <input type="number" class="form-control" id="utilityCostFullYear" name="utilityCostFullYear" required [(ngModel)]="model.utilityCostFullYear"
+        />
+      </div>
 
-  <table class='table'>
-    <thead>
-      <tr>
-        <th>Year</th>
-        <th>Total Cost Utility</th>
-        <th>Avg. Cost/month (Utility)</th>
-        <th>Cost/year 100% gen.</th>
-        <th>Savings/year 100% gen.</th>
-        <th>Cost/year 90% gen.</th>
-        <th>Savings/year 90% gen.</th>
-        <th>Cost/year 80% gen.</th>
-        <th>Savings/year 80% gen.</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let projection of solarProjection.futureProjection">
-        <td>{{ projection.purchaseYear | indexOffset }}</td>
-        <td>{{ projection.totalCost | currency }}</td>
-        <td>{{ projection.averageCostPerMonth | currency }}</td>
-        <td>{{ projection.costSolar100Percent | currency }}</td>
-        <td [ngClass]="{
+      <div class="form-group">
+        <label for="utilityPercentIncreasePerYear">Utility Cost % Increase/year</label>
+        <input type="number" class="form-control" id="utilityPercentIncreasePerYear" name="utilityPercentIncreasePerYear" required
+          [(ngModel)]="model.utilityPercentIncreasePerYear" />
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!projectionForm.form.valid">
+        Submit
+      </button>
+    </form>
+
+    <button type="button" class="btn" (click)="toggleFormInput()">
+      Projection Criteria
+      <span class="glyphicon" [ngClass]="{
+            'glyphicon-chevron-down': isExpandedForm,
+            'glyphicon-chevron-up': !isExpandedForm
+          }"></span>
+    </button>
+  </div>
+
+  <!-- Solar projection-->
+  <div>
+    <p *ngIf="!solarProjection"><em>Loading...</em></p>
+
+    <div *ngIf="solarProjection">
+
+      <h4>Solar Estimate (Guaranteed for 90% of total Kw/year Production)</h4>
+
+      <ul>
+        <li>Total Cost/year: {{ solarProjection.solarEstimate.totalCost | currency }}</li>
+        <li>Total Kw/h/year: {{ solarProjection.solarEstimate.totalKiloWattHours | number }}</li>
+        <li>Avg Cost/month: {{ solarProjection.solarEstimate.averageCostPerMonth | currency }}</li>
+        <li>Avg Cost/kw/h {{ solarProjection.solarEstimate.averageCostKiloWattHour | currency }}</li>
+        <li>Total Years Financed: {{ solarProjection.financeYears }} </li>
+      </ul>
+
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Total Cost Utility</th>
+            <th>Avg. Cost/month (Utility)</th>
+            <th>Cost/year 100% gen.</th>
+            <th>Savings/year 100% gen.</th>
+            <th>Cost/year 90% gen.</th>
+            <th>Savings/year 90% gen.</th>
+            <th>Cost/year 80% gen.</th>
+            <th>Savings/year 80% gen.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let projection of solarProjection.futureProjection">
+            <td>{{ projection.purchaseYear | indexOffset }}</td>
+            <td>{{ projection.totalCost | currency }}</td>
+            <td>{{ projection.averageCostPerMonth | currency }}</td>
+            <td>{{ projection.costSolar100Percent | currency }}</td>
+            <td [ngClass]="{
           positive: inTheGreen(projection.totalSavings100Percent),
           negative: !inTheGreen(projection.totalSavings100Percent)
         }">{{ projection.totalSavings100Percent | currency }}</td>
-        <td>{{ projection.costSolar90Percent | currency }}</td>
-        <td [ngClass]="{
+            <td>{{ projection.costSolar90Percent | currency }}</td>
+            <td [ngClass]="{
           positive: inTheGreen(projection.totalSavings90Percent),
           negative: !inTheGreen(projection.totalSavings90Percent)
         }">{{ projection.totalSavings90Percent | currency }}</td>
-        <td>{{ projection.costSolar80Percent | currency }}</td>
-        <td [ngClass]="{
+            <td>{{ projection.costSolar80Percent | currency }}</td>
+            <td [ngClass]="{
           positive: inTheGreen(projection.totalSavings80Percent),
           negative: !inTheGreen(projection.totalSavings80Percent)
         }">{{ projection.totalSavings80Percent | currency }}</td>
-      </tr>
-    </tbody>
-  </table>
-
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
