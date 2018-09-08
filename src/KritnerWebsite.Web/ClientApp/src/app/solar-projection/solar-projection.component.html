@@ -1,10 +1,12 @@
 <h1>Solar Projection</h1>
 
+<app-solar-projection-form></app-solar-projection-form>
+
 <p *ngIf="!solarProjection"><em>Loading...</em></p>
 
 <div *ngIf="solarProjection">
 
-  <h4>Solar Estimate (Guaranteed for 90% of 17k Kw/year Production</h4>
+  <h4>Solar Estimate (Guaranteed for 90% of total Kw/year Production)</h4>
 
   <ul>
     <li>Total Cost/year: {{ solarProjection.solarEstimate.totalCost | currency }}</li>

@@ -13,7 +13,9 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+
 import { SolarProjectionComponent } from './solar-projection/solar-projection.component';
+import { SolarProjectionFormComponent } from './solar-projection/solar-projection-form/solar-projection-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { SolarProjectionComponent } from './solar-projection/solar-projection.co
     AboutComponent,
     CounterComponent,
     FetchDataComponent,
-    SolarProjectionComponent
+    SolarProjectionComponent,
+    SolarProjectionFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,6 +39,7 @@ import { SolarProjectionComponent } from './solar-projection/solar-projection.co
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'solar-projection', component: SolarProjectionComponent },
+      { path: 'solar-projection-form', component: SolarProjectionFormComponent }
     ])
   ],
   providers: [],

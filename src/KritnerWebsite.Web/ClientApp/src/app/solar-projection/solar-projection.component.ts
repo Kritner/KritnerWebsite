@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SolarProjectionFormModel } from './solar-projection-form-model';
 
 @Component({
   selector: 'app-solar-projection',

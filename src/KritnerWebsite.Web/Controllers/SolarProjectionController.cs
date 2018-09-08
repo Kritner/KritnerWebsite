@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Kritner.SolarProjection.Helpers;
 using Kritner.SolarProjection.Interfaces;
 using Kritner.SolarProjection.Models;
+using KritnerWebsite.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KritnerWebsite.Web.Controllers
@@ -30,6 +31,25 @@ namespace KritnerWebsite.Web.Controllers
                     25, 
                     20,
                     .03
+                )
+            );
+        }
+
+        [HttpGet("[action]/{param}")]
+        public SolarVsUtilityProjection Get(
+            [FromQuery] SolarProjectionParameters param
+        )
+        {
+            return _service.CalculateFutureProjection(
+                new YearlyKwhUsageFromAnnual(
+                    param.SolarCostPerMonth * 12, 
+                    param.UtilitySolarArrayKwhYear
+                ),
+                new ProjectionParameters(
+                    new YearlyKwhUsageFromAnnual(param.UtilityCostFullYear, param.UtilitySolarArrayKwhYear),
+                    param.YearsToProject,
+                    param.SolarFinanceYears,
+                    param.UtilityPercentIncreasePerYear
                 )
             );
         }
