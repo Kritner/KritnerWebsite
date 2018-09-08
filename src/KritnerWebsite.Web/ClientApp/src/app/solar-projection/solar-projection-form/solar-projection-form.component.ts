@@ -8,10 +8,10 @@ import { SolarProjectionFormModel } from '../solar-projection-form-model';
   styleUrls: ['./solar-projection-form.component.css']
 })
 export class SolarProjectionFormComponent implements OnInit {
-  isExpanded = true;
+  isExpandedForm = true;
 
   toggle() {
-    this.isExpanded = !this.isExpanded;
+    this.isExpandedForm = !this.isExpandedForm;
   }
 
   model = new SolarProjectionFormModel(
@@ -24,7 +24,10 @@ export class SolarProjectionFormComponent implements OnInit {
   );
   submitted = false;
 
-  onSubmit() { this.submitted = true; }
+  onSubmit() {
+    this.toggle();
+    this.submitted = true;
+  }
 
   constructor() { }
 

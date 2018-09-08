@@ -1,5 +1,5 @@
 <div class="container">
-  <form *ngIf="!isExpanded">
+  <form *ngIf="!isExpandedForm" (ngSubmit)="onSubmit()" #projectionForm="ngForm">
     <div class="form-group">
       <label for="yearsToProject">Years to project</label>
       <input type="number" class="form-control" 
@@ -42,14 +42,17 @@
         required [(ngModel)]="model.utilityPercentIncreasePerYear" />
     </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success"
+      [disabled]="!projectionForm.form.valid">
+      Submit
+    </button>
   </form>
 
   <button type="button" class="btn" (click)="toggle()">
       Projection Criteria 
       <span class="glyphicon" [ngClass]="{
-        'glyphicon-chevron-down': isExpanded,
-        'glyphicon-chevron-up': !isExpanded
+        'glyphicon-chevron-down': isExpandedForm,
+        'glyphicon-chevron-up': !isExpandedForm
       }"></span>
     </button>
 </div>
