@@ -1,5 +1,5 @@
 # KritnerWebsite
-![Build](https://travis-ci.org/kritner/Kritner.Website.svg?branch=master)
+![Build](https://travis-ci.org/Kritner/KritnerWebsite.svg?branch=master)
 
 Website in .netcore
 
