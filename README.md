@@ -1,4 +1,6 @@
 # KritnerWebsite
+![Build](https://travis-ci.org/kritner/Kritner.Website.svg?branch=master)
+
 Website in .netcore
 
 My website, mostly used for exploring new tech and my own learning opportunities.  
