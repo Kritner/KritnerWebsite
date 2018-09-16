@@ -5,6 +5,7 @@ services:
     image: linuxserver/letsencrypt
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ${DOCKER_KRITNER_NGINX}:/config
       - ./nginx.conf:/config/nginx/site-confs/default
