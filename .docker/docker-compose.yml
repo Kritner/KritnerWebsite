@@ -6,8 +6,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
       - ${DOCKER_KRITNER_NGINX}:/config
+      - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - kritnerwebsite
     networks:
