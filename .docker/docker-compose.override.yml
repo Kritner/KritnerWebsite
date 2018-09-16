@@ -1,6 +1,0 @@
-version: '3.6'
-services:
-
-  kritner-website-web:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development

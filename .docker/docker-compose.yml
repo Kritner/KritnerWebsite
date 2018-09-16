@@ -1,16 +1,40 @@
 version: '3.6'
 services:
   
-  kritner-website-web:
-    image: ${DOCKER_REGISTRY}/kritnerwebsite
+  nginx:
+    image: linuxserver/letsencrypt
     ports:
-      - 80:5000
+      - "80:80"
+      - "443:443"
+    volumes:
+      # used to have a copy of config on the DOCKER HOST, can mod from there
+      - ${DOCKER_KRITNER_NGINX}:/config 
+      # the actual configuration file to use for the reverse proxy (localted in current repo directory)
+      - ./nginx.conf:/config/nginx/site-confs/default
+    depends_on:
+      - kritnerwebsite
     networks:
       - frontend
+    container_name: nginx
     environment:
-      - PORT=5000
+      - PUID=1001 # get on dockerhost through command "id <user>""
+      - PGID=1001
+      - EMAIL=kritner@gmail.com
+      - URL=kritner.com
+      - SUBDOMAINS=www
+      - TZ=America/NewYork
+      - VALIDATION=dns # using dns validation
+      - DNSPLUGIN=dnsimple # via dnsimple, note there is additional configuration require separate from this file
+      # - STAGING=true # this should be uncommented when testing for initial success, to avoid some rate limiting
+
+  kritnerwebsite:
+    image: ${DOCKER_REGISTRY}/kritnerwebsite
+    networks:
+      - frontend
+    expose:
+      - "5000"
     restart: always
-    container_name: kritnerwebsite_web
+    container_name: kritnerwebsite
   
 networks:
   frontend:
