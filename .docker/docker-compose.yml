@@ -7,7 +7,7 @@ services:
       - "80:80"
     volumes:
       - ${DOCKER_KRITNER_NGINX}:/config
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx.conf:/config/nginx/site-confs/default
     depends_on:
       - kritnerwebsite
     networks:
