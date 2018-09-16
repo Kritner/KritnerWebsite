@@ -2,16 +2,27 @@ version: '3.6'
 services:
   
   nginx:
-    image: nginx:latest
+    image: linuxserver/letsencrypt
     ports:
       - "80:80"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
+      - ${DOCKER_KRITNER_NGINX}:/config
     depends_on:
       - kritnerwebsite
     networks:
       - frontend
     container_name: nginx
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - EMAIL=kritner@gmail.com
+      - URL=kritner.com
+      - SUBDOMAINS=www
+      - TZ=America/NewYork
+      - VALIDATION=dns
+      - DNSPLUGIN=dnsimple
+      - STAGING=true
 
   kritnerwebsite:
     image: ${DOCKER_REGISTRY}/kritnerwebsite
