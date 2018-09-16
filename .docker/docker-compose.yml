@@ -22,10 +22,10 @@ services:
       - TZ=America/NewYork
       - VALIDATION=dns
       - DNSPLUGIN=dnsimple
-      - STAGING=true
+      # - STAGING=true
 
   kritnerwebsite:
-    image: ${DOCKER_REGISTRY}/kritnerwebsite
+    image: ${DOCKER_REGISTRY}/kritnerwebsite:test
     networks:
       - frontend
     expose:
