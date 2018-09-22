@@ -11,6 +11,8 @@ services:
       - ${DOCKER_KRITNER_NGINX}:/config 
       # the actual configuration file to use for the reverse proxy (localted in current repo directory)
       - ./nginx.conf:/config/nginx/site-confs/default
+      # overrides for ssl conf from base image
+      - ./ssl.conf:/config/nginx/ssl.conf
     depends_on:
       - kritnerwebsite
     networks:
