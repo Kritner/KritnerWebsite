@@ -18,6 +18,7 @@ services:
     networks:
       - frontend
     container_name: nginx
+    restart: always
     environment:
       - PUID=1001 # get on dockerhost through command "id <user>""
       - PGID=1001
