@@ -15,6 +15,12 @@ namespace KritnerWebsite.Web.Controllers
         };
 
         [HttpGet("[action]")]
+        public string GetValue(string value)
+        {
+            return $"ayyy you sent a {value}.";
+        }
+
+        [HttpGet("[action]")]
         public IEnumerable<WeatherForecast> WeatherForecasts()
         {
             var rng = new Random();
