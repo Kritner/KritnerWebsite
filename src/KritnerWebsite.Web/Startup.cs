@@ -3,11 +3,11 @@ using Kritner.SolarProjection.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OwaspHeaders.Core.Extensions;
 
 namespace KritnerWebsite.Web
 {
@@ -45,7 +45,9 @@ namespace KritnerWebsite.Web
             else
             {
                 app.UseExceptionHandler("/Error");
-                //app.UseHsts();
+                app.UseSecureHeadersMiddleware(
+                    SecureHeadersMiddlewareExtensions.BuildDefaultConfiguration()
+                );
             }
 
             app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -53,7 +55,6 @@ namespace KritnerWebsite.Web
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
 
-            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
