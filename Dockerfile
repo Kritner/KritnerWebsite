@@ -3,7 +3,7 @@
 # docker push kritner/kritnerwebsite
 
 # Runner image - Runtime + node for ng serve
-FROM microsoft/dotnet:2.2-aspnetcore-runtime AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
 RUN apt-get update \
     && apt-get -y upgrade \
     && apt-get -y dist-upgrade \
@@ -13,7 +13,7 @@ RUN apt-get update \
     && apt-get install -y nodejs
 
 # Builder image - SDK + node for angular building
-FROM microsoft/dotnet:2.2-sdk AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 RUN apt-get update \
     && apt-get -y upgrade \
     && apt-get -y dist-upgrade \

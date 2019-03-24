@@ -9,10 +9,7 @@ import { IndexOffsetPipe } from './pipes/index-offset.pipe';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-
 import { AboutComponent } from './about/about.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 
 import { SolarProjectionComponent } from './solar-projection/solar-projection.component';
 
@@ -23,8 +20,6 @@ import { SolarProjectionComponent } from './solar-projection/solar-projection.co
     NavMenuComponent,
     HomeComponent,
     AboutComponent,
-    CounterComponent,
-    FetchDataComponent,
     SolarProjectionComponent
   ],
   imports: [
@@ -34,8 +29,6 @@ import { SolarProjectionComponent } from './solar-projection/solar-projection.co
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'about', component: AboutComponent },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'solar-projection', component: SolarProjectionComponent }
     ])
   ],
