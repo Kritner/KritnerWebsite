@@ -53,6 +53,6 @@
     "typescript": "3.2.4"
   },
   "optionalDependencies": {
-    "node-sass": "4.11.0"
+    "node-sass": "4.13.1"
   }
 }
