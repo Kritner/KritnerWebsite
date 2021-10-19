@@ -37,7 +37,10 @@ export class NavMenu extends Component {
                   <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
+                  <NavLink tag={Link} className="text-dark" to={{ pathname: "https://blog.kritner.com/" }} target="_blank">Blog</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} className="text-dark" to="/solar-projection">Solar Projection</NavLink>
                 </NavItem>
               </ul>
             </Collapse>
