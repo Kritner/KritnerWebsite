@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\kritn\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\kritn\AppData\Local\JetBrains\Rider2020.3\javascript\typings\react-dom\17.0.2\node_modules\@types\prop-types" t="IncludeRecursive" />
+    <e p="C:\Users\kritn\AppData\Local\JetBrains\Rider2020.3\javascript\typings\react-dom\17.0.2\node_modules\@types\react" t="IncludeRecursive" />
+    <e p="C:\Users\kritn\AppData\Local\JetBrains\Rider2020.3\javascript\typings\react-dom\17.0.2\node_modules\@types\react-dom" t="IncludeRecursive" />
+    <e p="C:\Users\kritn\AppData\Local\JetBrains\Rider2020.3\javascript\typings\react-dom\17.0.2\node_modules\@types\scheduler" t="IncludeRecursive" />
+    <e p="C:\Users\kritn\AppData\Local\JetBrains\Rider2020.3\javascript\typings\react-dom\17.0.2\node_modules\csstype" t="IncludeRecursive" />
+    <e p="C:\Users\kritn\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_KritnerWebsite.-576672930.00" t="ExcludeRecursive" />
+    <e p="E:\gitWorkspace\KritnerWebsite" t="IncludeFlat">
+      <e p="KritnerWebsite.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Project1" t="IncludeRecursive">
+        <e p=".gitignore" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ClientApp" t="Include">
+          <e p=".env" t="Include" />
+          <e p=".env.development" t="Include" />
+          <e p=".env.development.local" t="Include" />
+          <e p=".gitignore" t="Include" />
+          <e p="aspnetcore-https.js" t="Include" />
+          <e p="aspnetcore-react.js" t="Include" />
+          <e p="node_modules\@babel\parser" t="IncludeRecursive" />
+          <e p="node_modules\@babel\types" t="IncludeRecursive" />
+          <e p="node_modules\@bcoe\v8-coverage" t="IncludeRecursive" />
+          <e p="node_modules\@hypnosphi\create-react-context" t="IncludeRecursive" />
+          <e p="node_modules\@jest\console" t="IncludeRecursive" />
+          <e p="node_modules\@jest\core" t="IncludeRecursive" />
+          <e p="node_modules\@jest\environment" t="IncludeRecursive" />
+          <e p="node_modules\@jest\fake-timers" t="IncludeRecursive" />
+          <e p="node_modules\@jest\globals" t="IncludeRecursive" />
+          <e p="node_modules\@jest\reporters" t="IncludeRecursive" />
+          <e p="node_modules\@jest\source-map" t="IncludeRecursive" />
+          <e p="node_modules\@jest\test-result" t="IncludeRecursive" />
+          <e p="node_modules\@jest\test-sequencer" t="IncludeRecursive" />
+          <e p="node_modules\@jest\transform" t="IncludeRecursive" />
+          <e p="node_modules\@jest\types" t="IncludeRecursive" />
+          <e p="node_modules\@pmmmwh\react-refresh-webpack-plugin" t="IncludeRecursive" />
+          <e p="node_modules\@types" t="IncludeRecursive">
+            <e p="babel__generator" t="IncludeRecursive" />
+            <e p="babel__template" t="IncludeRecursive" />
+            <e p="babel__traverse" t="IncludeRecursive" />
+            <e p="estree" t="IncludeRecursive" />
+            <e p="istanbul-lib-coverage" t="IncludeRecursive" />
+            <e p="istanbul-lib-report" t="IncludeRecursive" />
+            <e p="json-schema" t="IncludeRecursive" />
+            <e p="minimatch" t="IncludeRecursive" />
+            <e p="node" t="IncludeRecursive" />
+            <e p="source-list-map" t="IncludeRecursive" />
+            <e p="tapable" t="IncludeRecursive" />
+            <e p="uglify-js" t="IncludeRecursive" />
+            <e p="webpack-sources" t="IncludeRecursive" />
+            <e p="yargs-parser" t="IncludeRecursive" />
+          </e>
+          <e p="node_modules\@typescript-eslint\eslint-plugin" t="IncludeRecursive" />
+          <e p="node_modules\@typescript-eslint\experimental-utils" t="IncludeRecursive" />
+          <e p="node_modules\@typescript-eslint\parser" t="IncludeRecursive" />
+          <e p="node_modules\@typescript-eslint\scope-manager" t="IncludeRecursive" />
+          <e p="node_modules\@typescript-eslint\types" t="IncludeRecursive" />
+          <e p="node_modules\@typescript-eslint\typescript-estree" t="IncludeRecursive" />
+          <e p="node_modules\@typescript-eslint\visitor-keys" t="IncludeRecursive" />
+          <e p="node_modules\acorn" t="IncludeRecursive" />
+          <e p="node_modules\acorn-jsx" t="IncludeRecursive" />
+          <e p="node_modules\acorn-walk" t="IncludeRecursive" />
+          <e p="node_modules\aggregate-error" t="IncludeRecursive" />
+          <e p="node_modules\ajv" t="IncludeRecursive" />
+          <e p="node_modules\ajv-keywords" t="IncludeRecursive" />
+          <e p="node_modules\ansi-escapes" t="IncludeRecursive" />
+          <e p="node_modules\ansi-regex" t="IncludeRecursive" />
+          <e p="node_modules\anymatch" t="IncludeRecursive" />
+          <e p="node_modules\array-union" t="IncludeRecursive" />
+          <e p="node_modules\arrify" t="IncludeRecursive" />
+          <e p="node_modules\base64-js" t="IncludeRecursive" />
+          <e p="node_modules\bootstrap" t="IncludeRecursive" />
+          <e p="node_modules\callsites" t="IncludeRecursive" />
+          <e p="node_modules\camelcase" t="IncludeRecursive" />
+          <e p="node_modules\chalk" t="IncludeRecursive" />
+          <e p="node_modules\char-regex" t="IncludeRecursive" />
+          <e p="node_modules\cjs-module-lexer" t="IncludeRecursive" />
+          <e p="node_modules\classnames" t="IncludeRecursive" />
+          <e p="node_modules\clean-stack" t="IncludeRecursive" />
+          <e p="node_modules\collect-v8-coverage" t="IncludeRecursive" />
+          <e p="node_modules\commander" t="IncludeRecursive" />
+          <e p="node_modules\cross-env" t="IncludeRecursive" />
+          <e p="node_modules\del" t="IncludeRecursive" />
+          <e p="node_modules\detect-newline" t="IncludeRecursive" />
+          <e p="node_modules\diff-sequences" t="IncludeRecursive" />
+          <e p="node_modules\emittery" t="IncludeRecursive" />
+          <e p="node_modules\entities" t="IncludeRecursive" />
+          <e p="node_modules\error-stack-parser" t="IncludeRecursive" />
+          <e p="node_modules\eslint-config-react-app" t="IncludeRecursive" />
+          <e p="node_modules\eslint-plugin-import" t="IncludeRecursive" />
+          <e p="node_modules\eslint-plugin-jsx-a11y" t="IncludeRecursive" />
+          <e p="node_modules\eslint-plugin-react" t="IncludeRecursive" />
+          <e p="node_modules\eslint-webpack-plugin" t="IncludeRecursive" />
+          <e p="node_modules\estree-walker" t="IncludeRecursive" />
+          <e p="node_modules\execa" t="IncludeRecursive" />
+          <e p="node_modules\expect" t="IncludeRecursive" />
+          <e p="node_modules\fast-deep-equal" t="IncludeRecursive" />
+          <e p="node_modules\fast-json-stable-stringify" t="IncludeRecursive" />
+          <e p="node_modules\get-stream" t="IncludeRecursive" />
+          <e p="node_modules\globby" t="IncludeRecursive" />
+          <e p="node_modules\hash.js" t="IncludeRecursive" />
+          <e p="node_modules\html-entities" t="IncludeRecursive" />
+          <e p="node_modules\http-proxy-middleware" t="IncludeRecursive" />
+          <e p="node_modules\ignore" t="IncludeRecursive" />
+          <e p="node_modules\import-fresh" t="IncludeRecursive" />
+          <e p="node_modules\indent-string" t="IncludeRecursive" />
+          <e p="node_modules\is-docker" t="IncludeRecursive" />
+          <e p="node_modules\is-generator-fn" t="IncludeRecursive" />
+          <e p="node_modules\is-path-cwd" t="IncludeRecursive" />
+          <e p="node_modules\is-path-in-cwd" t="IncludeRecursive" />
+          <e p="node_modules\is-path-inside" t="IncludeRecursive" />
+          <e p="node_modules\is-stream" t="IncludeRecursive" />
+          <e p="node_modules\is-wsl" t="IncludeRecursive" />
+          <e p="node_modules\jest" t="IncludeRecursive" />
+          <e p="node_modules\jest-changed-files" t="IncludeRecursive" />
+          <e p="node_modules\jest-circus" t="IncludeRecursive" />
+          <e p="node_modules\jest-cli" t="IncludeRecursive" />
+          <e p="node_modules\jest-config" t="IncludeRecursive" />
+          <e p="node_modules\jest-diff" t="IncludeRecursive" />
+          <e p="node_modules\jest-docblock" t="IncludeRecursive" />
+          <e p="node_modules\jest-each" t="IncludeRecursive" />
+          <e p="node_modules\jest-environment-jsdom" t="IncludeRecursive" />
+          <e p="node_modules\jest-environment-node" t="IncludeRecursive" />
+          <e p="node_modules\jest-get-type" t="IncludeRecursive" />
+          <e p="node_modules\jest-haste-map" t="IncludeRecursive" />
+          <e p="node_modules\jest-jasmine2" t="IncludeRecursive" />
+          <e p="node_modules\jest-leak-detector" t="IncludeRecursive" />
+          <e p="node_modules\jest-matcher-utils" t="IncludeRecursive" />
+          <e p="node_modules\jest-message-util" t="IncludeRecursive" />
+          <e p="node_modules\jest-mock" t="IncludeRecursive" />
+          <e p="node_modules\jest-pnp-resolver" t="IncludeRecursive" />
+          <e p="node_modules\jest-regex-util" t="IncludeRecursive" />
+          <e p="node_modules\jest-resolve" t="IncludeRecursive" />
+          <e p="node_modules\jest-resolve-dependencies" t="IncludeRecursive" />
+          <e p="node_modules\jest-runner" t="IncludeRecursive" />
+          <e p="node_modules\jest-runtime" t="IncludeRecursive" />
+          <e p="node_modules\jest-serializer" t="IncludeRecursive" />
+          <e p="node_modules\jest-snapshot" t="IncludeRecursive" />
+          <e p="node_modules\jest-util" t="IncludeRecursive" />
+          <e p="node_modules\jest-validate" t="IncludeRecursive" />
+          <e p="node_modules\jest-watcher" t="IncludeRecursive" />
+          <e p="node_modules\jest-worker" t="IncludeRecursive" />
+          <e p="node_modules\jquery" t="IncludeRecursive" />
+          <e p="node_modules\kleur" t="IncludeRecursive" />
+          <e p="node_modules\leven" t="IncludeRecursive" />
+          <e p="node_modules\magic-string" t="IncludeRecursive" />
+          <e p="node_modules\make-dir" t="IncludeRecursive" />
+          <e p="node_modules\merge" t="IncludeRecursive" />
+          <e p="node_modules\mimic-fn" t="IncludeRecursive" />
+          <e p="node_modules\nan" t="IncludeRecursive" />
+          <e p="node_modules\nanoid" t="IncludeRecursive" />
+          <e p="node_modules\native-url" t="IncludeRecursive" />
+          <e p="node_modules\npm-run-path" t="IncludeRecursive" />
+          <e p="node_modules\oidc-client" t="IncludeRecursive" />
+          <e p="node_modules\onetime" t="IncludeRecursive" />
+          <e p="node_modules\open" t="IncludeRecursive" />
+          <e p="node_modules\p-each-series" t="IncludeRecursive" />
+          <e p="node_modules\p-map" t="IncludeRecursive" />
+          <e p="node_modules\path-key" t="IncludeRecursive" />
+          <e p="node_modules\path-type" t="IncludeRecursive" />
+          <e p="node_modules\pirates" t="IncludeRecursive" />
+          <e p="node_modules\popper.js" t="IncludeRecursive" />
+          <e p="node_modules\pretty-bytes" t="IncludeRecursive" />
+          <e p="node_modules\pretty-format" t="IncludeRecursive" />
+          <e p="node_modules\promise" t="IncludeRecursive" />
+          <e p="node_modules\querystring" t="IncludeRecursive" />
+          <e p="node_modules\react" t="IncludeRecursive" />
+          <e p="node_modules\react-dom" t="IncludeRecursive" />
+          <e p="node_modules\react-popper" t="IncludeRecursive" />
+          <e p="node_modules\react-router-bootstrap" t="IncludeRecursive" />
+          <e p="node_modules\react-router-dom" t="IncludeRecursive" />
+          <e p="node_modules\react-scripts" t="IncludeRecursive" />
+          <e p="node_modules\reactstrap" t="IncludeRecursive" />
+          <e p="node_modules\regexpp" t="IncludeRecursive" />
+          <e p="node_modules\rimraf" t="IncludeRecursive" />
+          <e p="node_modules\rollup" t="IncludeRecursive" />
+          <e p="node_modules\rollup-plugin-terser" t="IncludeRecursive" />
+          <e p="node_modules\rollup-pluginutils" t="IncludeRecursive" />
+          <e p="node_modules\schema-utils" t="IncludeRecursive" />
+          <e p="node_modules\slash" t="IncludeRecursive" />
+          <e p="node_modules\source-map" t="IncludeRecursive" />
+          <e p="node_modules\sourcemap-codec" t="IncludeRecursive" />
+          <e p="node_modules\stackframe" t="IncludeRecursive" />
+          <e p="node_modules\string-length" t="IncludeRecursive" />
+          <e p="node_modules\strip-ansi" t="IncludeRecursive" />
+          <e p="node_modules\strip-bom" t="IncludeRecursive" />
+          <e p="node_modules\tempy" t="IncludeRecursive" />
+          <e p="node_modules\terminal-link" t="IncludeRecursive" />
+          <e p="node_modules\terser" t="IncludeRecursive" />
+          <e p="node_modules\throat" t="IncludeRecursive" />
+          <e p="node_modules\ts-pnp" t="IncludeRecursive" />
+          <e p="node_modules\tslib" t="IncludeRecursive" />
+          <e p="node_modules\tsutils" t="IncludeRecursive" />
+          <e p="node_modules\uri-js" t="IncludeRecursive" />
+          <e p="node_modules\v8-to-istanbul" t="IncludeRecursive" />
+          <e p="node_modules\web-vitals" t="IncludeRecursive" />
+          <e p="node_modules\workbox-background-sync" t="IncludeRecursive" />
+          <e p="node_modules\workbox-broadcast-update" t="IncludeRecursive" />
+          <e p="node_modules\workbox-cacheable-response" t="IncludeRecursive" />
+          <e p="node_modules\workbox-core" t="IncludeRecursive" />
+          <e p="node_modules\workbox-expiration" t="IncludeRecursive" />
+          <e p="node_modules\workbox-google-analytics" t="IncludeRecursive" />
+          <e p="node_modules\workbox-navigation-preload" t="IncludeRecursive" />
+          <e p="node_modules\workbox-precaching" t="IncludeRecursive" />
+          <e p="node_modules\workbox-range-requests" t="IncludeRecursive" />
+          <e p="node_modules\workbox-routing" t="IncludeRecursive" />
+          <e p="node_modules\workbox-strategies" t="IncludeRecursive" />
+          <e p="node_modules\workbox-streams" t="IncludeRecursive" />
+          <e p="package-lock.json" t="Include" />
+          <e p="package.json" t="Include" />
+          <e p="public" t="Include">
+            <e p="favicon.ico" t="Include" />
+            <e p="index.html" t="Include" />
+            <e p="manifest.json" t="Include" />
+          </e>
+          <e p="README.md" t="Include" />
+          <e p="src" t="Include">
+            <e p="App.js" t="Include" />
+            <e p="App.test.js" t="Include" />
+            <e p="components" t="Include">
+              <e p="Counter.js" t="Include" />
+              <e p="FetchData.js" t="Include" />
+              <e p="Home.js" t="Include" />
+              <e p="Layout.js" t="Include" />
+              <e p="NavMenu.css" t="Include" />
+              <e p="NavMenu.js" t="Include" />
+            </e>
+            <e p="custom.css" t="Include" />
+            <e p="index.js" t="Include" />
+            <e p="reportWebVitals.js" t="Include" />
+            <e p="service-worker.js" t="Include" />
+            <e p="serviceWorkerRegistration.js" t="Include" />
+            <e p="setupProxy.js" t="Include" />
+          </e>
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="WeatherForecastController.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net6.0" t="Include">
+              <e p="Project1.AssemblyInfo.cs" t="Include" />
+              <e p="Project1.GlobalUsings.g.cs" t="Include" />
+              <e p="Project1.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Pages" t="Include">
+          <e p="_ViewImports.cshtml" t="Include" />
+          <e p="Error.cshtml" t="Include" />
+          <e p="Error.cshtml.cs" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Project1.csproj" t="IncludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="WeatherForecast.cs" t="Include" />
+      </e>
+      <e p="Solution Items" t="Include" />
+      <e p="src" t="Include">
+        <e p="KritnerWebsite.Web" t="IncludeRecursive">
+          <e p=".gitignore" t="Include" />
+          <e p="appsettings.Development.json" t="Include" />
+          <e p="appsettings.json" t="Include" />
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="ClientApp" t="Include">
+            <e p=".editorconfig" t="Include" />
+            <e p=".gitignore" t="Include" />
+            <e p="angular.json" t="Include" />
+            <e p="e2e" t="Include">
+              <e p="app.e2e-spec.ts" t="Include" />
+              <e p="app.po.ts" t="Include" />
+              <e p="tsconfig.e2e.json" t="Include" />
+            </e>
+            <e p="karma.conf.js" t="Include" />
+            <e p="node_modules\@angular\animations" t="IncludeRecursive" />
+            <e p="node_modules\@angular\cli" t="IncludeRecursive" />
+            <e p="node_modules\@angular\common" t="IncludeRecursive" />
+            <e p="node_modules\@angular\compiler" t="IncludeRecursive" />
+            <e p="node_modules\@angular\compiler-cli" t="IncludeRecursive" />
+            <e p="node_modules\@angular\core" t="IncludeRecursive" />
+            <e p="node_modules\@angular\forms" t="IncludeRecursive" />
+            <e p="node_modules\@angular\platform-browser" t="IncludeRecursive" />
+            <e p="node_modules\@angular\platform-browser-dynamic" t="IncludeRecursive" />
+            <e p="node_modules\@angular\platform-server" t="IncludeRecursive" />
+            <e p="node_modules\@angular\router" t="IncludeRecursive" />
+            <e p="node_modules\@angular-devkit\architect" t="IncludeRecursive" />
+            <e p="node_modules\@angular-devkit\build-angular" t="IncludeRecursive" />
+            <e p="node_modules\@angular-devkit\build-optimizer" t="IncludeRecursive" />
+            <e p="node_modules\@angular-devkit\build-webpack" t="IncludeRecursive" />
+            <e p="node_modules\@angular-devkit\core" t="IncludeRecursive" />
+            <e p="node_modules\@angular-devkit\schematics" t="IncludeRecursive" />
+            <e p="node_modules\@ngtools\webpack" t="IncludeRecursive" />
+            <e p="node_modules\@nguniversal\module-map-ngfactory-loader" t="IncludeRecursive" />
+            <e p="node_modules\@types" t="IncludeRecursive">
+              <e p="jasmine" t="IncludeRecursive" />
+              <e p="jasminewd2" t="IncludeRecursive" />
+              <e p="minimatch" t="IncludeRecursive" />
+              <e p="node" t="IncludeRecursive" />
+              <e p="source-list-map" t="IncludeRecursive" />
+            </e>
+            <e p="node_modules\acorn" t="IncludeRecursive" />
+            <e p="node_modules\ajv" t="IncludeRecursive" />
+            <e p="node_modules\ajv-keywords" t="IncludeRecursive" />
+            <e p="node_modules\ansi-colors" t="IncludeRecursive" />
+            <e p="node_modules\arg" t="IncludeRecursive" />
+            <e p="node_modules\blocking-proxy" t="IncludeRecursive" />
+            <e p="node_modules\bootstrap" t="IncludeRecursive" />
+            <e p="node_modules\canonical-path" t="IncludeRecursive" />
+            <e p="node_modules\codelyzer" t="IncludeRecursive" />
+            <e p="node_modules\commander" t="IncludeRecursive" />
+            <e p="node_modules\core-js" t="IncludeRecursive" />
+            <e p="node_modules\coverage-istanbul-loader" t="IncludeRecursive" />
+            <e p="node_modules\dependency-graph" t="IncludeRecursive" />
+            <e p="node_modules\domino" t="IncludeRecursive" />
+            <e p="node_modules\es6-promise" t="IncludeRecursive" />
+            <e p="node_modules\fast-deep-equal" t="IncludeRecursive" />
+            <e p="node_modules\fast-json-stable-stringify" t="IncludeRecursive" />
+            <e p="node_modules\jasmine-core" t="IncludeRecursive" />
+            <e p="node_modules\jasmine-spec-reporter" t="IncludeRecursive" />
+            <e p="node_modules\jest-worker" t="IncludeRecursive" />
+            <e p="node_modules\jquery" t="IncludeRecursive" />
+            <e p="node_modules\karma" t="IncludeRecursive" />
+            <e p="node_modules\karma-chrome-launcher" t="IncludeRecursive" />
+            <e p="node_modules\karma-coverage-istanbul-reporter" t="IncludeRecursive" />
+            <e p="node_modules\karma-jasmine" t="IncludeRecursive" />
+            <e p="node_modules\karma-jasmine-html-reporter" t="IncludeRecursive" />
+            <e p="node_modules\license-webpack-plugin" t="IncludeRecursive" />
+            <e p="node_modules\magic-string" t="IncludeRecursive" />
+            <e p="node_modules\make-error" t="IncludeRecursive" />
+            <e p="node_modules\node-sass" t="IncludeRecursive" />
+            <e p="node_modules\open" t="IncludeRecursive" />
+            <e p="node_modules\parse5" t="IncludeRecursive" />
+            <e p="node_modules\portfinder" t="IncludeRecursive" />
+            <e p="node_modules\postcss" t="IncludeRecursive" />
+            <e p="node_modules\promise" t="IncludeRecursive" />
+            <e p="node_modules\protractor" t="IncludeRecursive" />
+            <e p="node_modules\reflect-metadata" t="IncludeRecursive" />
+            <e p="node_modules\rxjs" t="IncludeRecursive" />
+            <e p="node_modules\schema-utils" t="IncludeRecursive" />
+            <e p="node_modules\semver-dsl" t="IncludeRecursive" />
+            <e p="node_modules\source-map" t="IncludeRecursive" />
+            <e p="node_modules\sourcemap-codec" t="IncludeRecursive" />
+            <e p="node_modules\symbol-observable" t="IncludeRecursive" />
+            <e p="node_modules\terser" t="IncludeRecursive" />
+            <e p="node_modules\tree-kill" t="IncludeRecursive" />
+            <e p="node_modules\ts-node" t="IncludeRecursive" />
+            <e p="node_modules\tslib" t="IncludeRecursive" />
+            <e p="node_modules\uri-js" t="IncludeRecursive" />
+            <e p="node_modules\webdriver-js-extender" t="IncludeRecursive" />
+            <e p="node_modules\yn" t="IncludeRecursive" />
+            <e p="node_modules\zone.js" t="IncludeRecursive" />
+            <e p="package-lock.json" t="Include" />
+            <e p="package.json" t="Include" />
+            <e p="protractor.conf.js" t="Include" />
+            <e p="README.md" t="Include" />
+            <e p="src" t="Include">
+              <e p="app" t="Include">
+                <e p="about" t="Include">
+                  <e p="about.component.css" t="Include" />
+                  <e p="about.component.html" t="Include" />
+                  <e p="about.component.ts" t="Include" />
+                </e>
+                <e p="app.component.css" t="Include" />
+                <e p="app.component.html" t="Include" />
+                <e p="app.component.ts" t="Include" />
+                <e p="app.module.ts" t="Include" />
+                <e p="home" t="Include">
+                  <e p="home.component.html" t="Include" />
+                  <e p="home.component.ts" t="Include" />
+                </e>
+                <e p="nav-menu" t="Include">
+                  <e p="nav-menu.component.css" t="Include" />
+                  <e p="nav-menu.component.html" t="Include" />
+                  <e p="nav-menu.component.ts" t="Include" />
+                </e>
+                <e p="pipes" t="Include">
+                  <e p="index-offset.pipe.ts" t="Include" />
+                </e>
+                <e p="solar-projection" t="Include">
+                  <e p="solar-projection-form-model.ts" t="Include" />
+                  <e p="solar-projection.component.css" t="Include" />
+                  <e p="solar-projection.component.html" t="Include" />
+                  <e p="solar-projection.component.ts" t="Include" />
+                </e>
+              </e>
+              <e p="assets" t="Include">
+                <e p=".gitkeep" t="Include" />
+              </e>
+              <e p="environments" t="Include">
+                <e p="environment.prod.ts" t="Include" />
+                <e p="environment.ts" t="Include" />
+              </e>
+              <e p="index.html" t="Include" />
+              <e p="main.ts" t="Include" />
+              <e p="polyfills.ts" t="Include" />
+              <e p="styles.css" t="Include" />
+              <e p="test.ts" t="Include" />
+              <e p="tsconfig.app.json" t="Include" />
+              <e p="tsconfig.spec.json" t="Include" />
+              <e p="typings.d.ts" t="Include" />
+            </e>
+            <e p="tsconfig.json" t="Include" />
+            <e p="tslint.json" t="Include" />
+          </e>
+          <e p="Controllers" t="Include">
+            <e p="SampleDataController.cs" t="Include" />
+            <e p="SolarProjectionController.cs" t="Include" />
+          </e>
+          <e p="KritnerWebsite.Web.csproj" t="IncludeRecursive" />
+          <e p="Models" t="Include">
+            <e p="SolarProjectionParameters.cs" t="Include" />
+          </e>
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="netcoreapp2.2" t="Include">
+                <e p="KritnerWebsite.Web.AssemblyInfo.cs" t="Include" />
+                <e p="KritnerWebsite.Web.RazorAssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Pages" t="Include">
+            <e p="_ViewImports.cshtml" t="Include" />
+            <e p="Error.cshtml" t="Include" />
+            <e p="Error.cshtml.cs" t="Include" />
+          </e>
+          <e p="Program.cs" t="Include" />
+          <e p="Properties" t="Include">
+            <e p="launchSettings.json" t="Include" />
+          </e>
+          <e p="Startup.cs" t="Include" />
+          <e p="wwwroot" t="Include">
+            <e p="favicon.ico" t="Include" />
+          </e>
+        </e>
+      </e>
+    </e>
+  </component>
+</project>
