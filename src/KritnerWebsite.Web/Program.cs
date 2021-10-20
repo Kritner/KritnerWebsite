@@ -4,9 +4,13 @@ using Microsoft.AspNetCore.HttpOverrides;
 using OwaspHeaders.Core.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
+if (!builder.Environment.IsDevelopment())
+{
+    builder.WebHost.UseUrls("http://*:5000");
+    builder.WebHost.UseKestrel();
+}
 
 // Add services to the container.
-
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IProjectFutureEnergyCostService, ProjectFutureEnergyCostService>();
 
@@ -15,8 +19,6 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
     app.UseSecureHeadersMiddleware(
         SecureHeadersMiddlewareExtensions.BuildDefaultConfiguration()
     );
@@ -28,9 +30,9 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 });
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 app.UseRouting();
-
 
 app.MapControllerRoute(
     name: "default",

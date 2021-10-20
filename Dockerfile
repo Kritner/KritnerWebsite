@@ -1,9 +1,9 @@
-# docker build -t kritner/kritnerwebsite .
-# docker run -d -p 5000:5000 kritner/kritnerwebsite
+# docker build -t kritner/kritnerwebsite:6.0 .
+# docker run -d -p 5000:5000 kritner/kritnerwebsite:6.0
 # docker push kritner/kritnerwebsite:6.0
 
 # Runner image - Runtime + node for ng serve
-FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS base
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS base
 RUN apt-get update \
     && apt-get -y upgrade \
     && apt-get -y dist-upgrade \
@@ -13,7 +13,7 @@ RUN apt-get update \
     && apt-get install -y nodejs
 
 # Builder image - SDK + node for angular building
-FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 RUN apt-get update \
     && apt-get -y upgrade \
     && apt-get -y dist-upgrade \
@@ -44,7 +44,7 @@ COPY ["src/KritnerWebsite.Web/", "src/KritnerWebsite.Web"]
 WORKDIR /src/src/KritnerWebsite.Web
 
 # Build the .net source, don't restore (as that is its own cachable layer)
-# RUN dotnet build -c Release -o /app --no-restore
+RUN dotnet build -c Release -o /app --no-restore
  
 FROM build AS publish
 
