@@ -1,6 +1,6 @@
 export const Home = () => {
   return (
-    <div>
+    <>
       <p>
         This is my personal site.
       </p>
@@ -15,7 +15,6 @@ export const Home = () => {
       <p>
         Ayyy! Docker! We did it guys!
       </p>
-    </div>
-
+    </>
   );
 };
