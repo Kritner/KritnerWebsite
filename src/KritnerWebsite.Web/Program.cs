@@ -1,26 +1,43 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+using Kritner.SolarProjection.Interfaces;
+using Kritner.SolarProjection.Services;
+using Microsoft.AspNetCore.HttpOverrides;
+using OwaspHeaders.Core.Extensions;
 
-namespace KritnerWebsite.Web
+var builder = WebApplication.CreateBuilder(args);
+if (!builder.Environment.IsDevelopment())
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
-
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseUrls("http://*:5000")
-                .UseKestrel()
-                .UseStartup<Startup>();
-    }
+    builder.WebHost.UseUrls("http://*:5000");
+    builder.WebHost.UseKestrel();
 }
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IProjectFutureEnergyCostService, ProjectFutureEnergyCostService>();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseSecureHeadersMiddleware(
+        SecureHeadersMiddlewareExtensions.BuildDefaultConfiguration()
+    );
+}
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
+app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+app.UseRouting();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller}/{action=Index}/{id?}");
+
+app.MapFallbackToFile("index.html"); ;
+
+app.Run();

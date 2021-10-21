@@ -1,58 +1,69 @@
 {
-  "name": "KritnerWebsite.Web",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "build:ssr": "npm run build -- --app=ssr --output-hashing=media",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
-  },
+  "name": "kritnerwebsite",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@angular/animations": "^7.2.15",
-    "@angular/common": "^7.2.15",
-    "@angular/compiler": "^7.2.15",
-    "@angular/core": "^7.2.15",
-    "@angular/forms": "^7.2.15",
-    "@angular/http": "^7.2.15",
-    "@angular/platform-browser": "^7.2.15",
-    "@angular/platform-browser-dynamic": "^7.2.15",
-    "@angular/platform-server": "^7.2.15",
-    "@angular/router": "^7.2.15",
-    "@nguniversal/module-map-ngfactory-loader": "^7.1.1",
-    "aspnet-prerendering": "^3.0.1",
-    "bootstrap": "3.4.1",
-    "core-js": "3.0.0",
-    "jquery": "^3.4.1",
-    "rxjs": "^6.5.2",
-    "zone.js": "^0.8.26"
+    "bootstrap": "^5.1.0",
+    "http-proxy-middleware": "^0.19.1",
+    "jquery": "^3.5.1",
+    "merge": "^2.1.1",
+    "oidc-client": "^1.11.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-bootstrap": "^0.25.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
+    "reactstrap": "^8.9.0",
+    "rimraf": "^2.6.2",
+    "web-vitals": "^0.2.4",
+    "workbox-background-sync": "^5.1.3",
+    "workbox-broadcast-update": "^5.1.3",
+    "workbox-cacheable-response": "^5.1.3",
+    "workbox-core": "^5.1.3",
+    "workbox-expiration": "^5.1.3",
+    "workbox-google-analytics": "^5.1.3",
+    "workbox-navigation-preload": "^5.1.3",
+    "workbox-precaching": "^5.1.3",
+    "workbox-range-requests": "^5.1.3",
+    "workbox-routing": "^5.1.3",
+    "workbox-strategies": "^5.1.3",
+    "workbox-streams": "^5.1.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.800.2",
-    "@angular/cli": "7.3.6",
-    "@angular/compiler-cli": "7.2.10",
-    "@angular/language-service": "7.2.10",
-    "@types/jasmine": "3.3.12",
-    "@types/jasminewd2": "2.0.6",
-    "@types/node": "11.11.6",
-    "codelyzer": "4.5.0",
-    "jasmine-core": "3.3.0",
-    "jasmine-spec-reporter": "4.2.1",
-    "karma": "4.0.1",
-    "karma-chrome-launcher": "2.2.0",
-    "karma-coverage-istanbul-reporter": "2.0.5",
-    "karma-jasmine": "2.0.1",
-    "karma-jasmine-html-reporter": "1.4.0",
-    "protractor": "6.0.0",
-    "ts-node": "8.0.3",
-    "tslint": "5.14.0",
-    "typescript": "3.2.4"
+    "ajv": "^6.9.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.25.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.7.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "nan": "^2.14.2",
+    "typescript": "^4.2.4"
   },
-  "optionalDependencies": {
-    "node-sass": "4.11.0"
+  "scripts": {
+    "prestart": "node aspnetcore-https && node aspnetcore-react",
+    "start": "rimraf ./build && react-scripts start",
+    "build": "react-scripts build",
+    "test": "cross-env CI=true react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src/"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

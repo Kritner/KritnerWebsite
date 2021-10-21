@@ -1,25 +1,25 @@
-# docker build -t kritner/kritnerwebsite .
-# docker run -d -p 5000:5000 kritner/kritnerwebsite
-# docker push kritner/kritnerwebsite
+# docker build -t kritner/kritnerwebsite:6.0 .
+# docker run -d -p 5000:5000 kritner/kritnerwebsite:6.0
+# docker push kritner/kritnerwebsite:6.0
 
 # Runner image - Runtime + node for ng serve
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS base
 RUN apt-get update \
     && apt-get -y upgrade \
     && apt-get -y dist-upgrade \
     && apt-get install -y gnupg \
     && apt-get install -y sudo \
-    && curl -sL deb.nodesource.com/setup_10.x | sudo -E bash - \
+    && curl -sL deb.nodesource.com/setup_14.x | sudo -E bash - \
     && apt-get install -y nodejs
 
 # Builder image - SDK + node for angular building
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 RUN apt-get update \
     && apt-get -y upgrade \
     && apt-get -y dist-upgrade \
     && apt-get install -y gnupg \
     && apt-get install -y sudo \
-    && curl -sL deb.nodesource.com/setup_10.x | sudo -E bash - \
+    && curl -sL deb.nodesource.com/setup_14.x | sudo -E bash - \
     && apt-get install -y nodejs
 
 WORKDIR /src
@@ -49,7 +49,8 @@ RUN dotnet build -c Release -o /app --no-restore
 FROM build AS publish
 
 # Perform a publish on the build code without rebuilding/restoring. Put it in /app
-RUN dotnet publish -c Release -o /app --no-restore --no-build
+# RUN dotnet publish -c Release -o /app --no-restore --no-build
+RUN dotnet publish -c Release -o /app 
 
 # The runnable image/code
 FROM base AS final
