@@ -31,7 +31,7 @@ services:
       # - STAGING=true # this should be uncommented when testing for initial success, to avoid some rate limiting
 
   kritnerwebsite:
-    image: ${DOCKER_REGISTRY}/kritnerwebsite:6.0
+    image: ${DOCKER_REGISTRY}/kritnerwebsite
     networks:
       - frontend
     expose:
